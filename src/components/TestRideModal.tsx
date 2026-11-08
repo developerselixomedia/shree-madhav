@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   X, 
-  Calendar, 
-  CheckCircle2, 
-  MapPin, 
-  Sparkles, 
-  User, 
   Phone, 
-  Clock, 
+  User, 
   ChevronDown, 
   ShieldCheck, 
   ArrowRight,
-  Gauge,
-  BatteryCharging,
-  Building2,
-  Home,
-  Zap
+  Clock,
+  Zap,
+  MapPin,
+  Bike,
+  MessageSquare,
+  BadgeCheck,
+  Headset,
+  Users
 } from 'lucide-react';
 import { VEHICLES, SHOWROOM_INFO } from '../data/inventory';
 
@@ -25,395 +23,330 @@ interface TestRideModalProps {
   initialModelId?: string;
 }
 
+const TRUST_POINTS = [
+  { icon: Users, value: "500+", label: "Happy Riders" },
+  { icon: Headset, value: "Jhalwa", label: "Showroom Hub" },
+  { icon: BadgeCheck, value: "100% Free", label: "No Sales Pressure" },
+];
+
 export const TestRideModal: React.FC<TestRideModalProps> = ({
   isOpen,
   onClose,
   initialModelId,
 }) => {
-  if (!isOpen) return null;
+  const [animateIn, setAnimateIn] = useState(false);
 
-  // Only test-rideable models (exclude battery packs and chargers)
+  // Filter test-rideable models
   const testRideVehicles = VEHICLES.filter(
     (v) => v.category === 'scooty' || v.category === 'rickshaw'
   );
 
-  const [selectedModel, setSelectedModel] = useState(
-    initialModelId && testRideVehicles.some((v) => v.id === initialModelId)
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    model: initialModelId && testRideVehicles.some((v) => v.id === initialModelId)
       ? initialModelId
-      : testRideVehicles[0]?.id || VEHICLES[0].id
-  );
-  const [fullName, setFullName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [locality, setLocality] = useState('');
-  const [preferredDate, setPreferredDate] = useState('');
-  const [preferredTime, setPreferredTime] = useState('11:00 AM - 01:00 PM (Morning)');
-  const [rideType, setRideType] = useState<'showroom' | 'home'>('showroom');
-  const [isSuccess, setIsSuccess] = useState(false);
+      : testRideVehicles[0]?.id || 'falcon-ev',
+    location: 'Showroom Visit (Jhalwa Crossing, Prayagraj)',
+    message: ''
+  });
 
-  const selectedVehicle = testRideVehicles.find((v) => v.id === selectedModel) || testRideVehicles[0] || VEHICLES[0];
+  useEffect(() => {
+    if (initialModelId && testRideVehicles.some((v) => v.id === initialModelId)) {
+      setFormData((prev) => ({ ...prev, model: initialModelId }));
+    }
+  }, [initialModelId]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => setAnimateIn(true), 40);
+    } else {
+      setAnimateIn(false);
+    }
+  }, [isOpen]);
+
+  // Escape key to close
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) onClose();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const isFormValid = () => {
+    return formData.name.trim() !== '' &&
+           formData.phone.trim() !== '' &&
+           formData.phone.length === 10;
+  };
+
+  const selectedVehicleObj = testRideVehicles.find((v) => v.id === formData.model) || testRideVehicles[0];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!phone || phone.length < 10) return;
+    if (!isFormValid()) {
+      alert('Please enter your full name and 10-digit mobile number.');
+      return;
+    }
 
-    setIsSuccess(true);
+    const message = `⚡ Free EV Test Ride & Spot Booking Request
 
-    const locationText = rideType === 'showroom' 
-      ? 'Showroom Visit (Shaha Urf Pipal Gaon, Jhalwa)' 
-      : 'Doorstep Home Delivery (Prayagraj)';
+👤 Name: ${formData.name}
+📱 Phone: ${formData.phone}
+🛵 EV Model: ${selectedVehicleObj?.name || formData.model}
+📍 Location: ${formData.location}
+💬 Notes / Preferred Slot: ${formData.message || 'Earliest available today'}
 
-    const msg = `Hi Shree Madhav Enterprises, I want to book a Free EV Test Ride!%0A%0A*Selected EV:* ${encodeURIComponent(selectedVehicle.name)}%0A*Ride Option:* ${encodeURIComponent(locationText)}%0A*Preferred Date:* ${preferredDate || 'Earliest Available'}%0A*Time Slot:* ${encodeURIComponent(preferredTime)}%0A*Customer Name:* ${encodeURIComponent(fullName || 'Valued Customer')}%0A*WhatsApp Phone:* ${phone}%0A*Area / Locality:* ${encodeURIComponent(locality || 'Prayagraj')}%0A%0APlease confirm my appointment.`;
-    
-    setTimeout(() => {
-      window.open(`https://wa.me/${SHOWROOM_INFO.whatsapp}?text=${msg}`, '_blank');
-    }, 600);
+I'd like to book a free test ride and explore the ₹2,999 festive down payment scheme!`;
+
+    const whatsappUrl = `https://wa.me/${SHOWROOM_INFO.whatsapp}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+
+    onClose();
   };
+
+  const fieldClass =
+    "w-full pl-11 pr-4 py-3.5 bg-black/60 border border-white/15 rounded-xl text-white placeholder-gray-500 " +
+    "focus:border-[#ea580c] focus:ring-2 focus:ring-[#ea580c]/25 focus:outline-none transition-all duration-200 " +
+    "hover:border-white/25 text-sm";
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#08120B]/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="test-ride-modal-title"
+      aria-label="Book Your Free Test Ride"
+      className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center bg-black/85 backdrop-blur-md transition-opacity duration-300 p-0 sm:p-4 select-none"
+      style={{ opacity: animateIn ? 1 : 0 }}
       onClick={onClose}
     >
-      <div 
-        className="relative w-full max-w-xl bg-[#FDFBF7] border-2 border-[#eab308]/60 rounded-3xl shadow-2xl p-6 sm:p-8 my-auto overflow-hidden text-left"
+      <div
+        className={`relative w-full sm:max-w-lg flex flex-col bg-gradient-to-br from-[#161616] via-[#111111] to-[#0a0a0a] border border-[#ea580c]/35 rounded-t-3xl sm:rounded-3xl shadow-[0_0_120px_rgba(234,88,12,0.3)] transition-all max-h-[92vh] overflow-hidden duration-300 ${
+          animateIn ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#FBF7EE] hover:bg-stone-200 text-stone-500 hover:text-stone-900 border border-[#E6DAC7] flex items-center justify-center transition-colors cursor-pointer z-10"
-          aria-label="Close Test Ride Modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
+        {/* Ambient Saffron Glow */}
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-[#ea580c]/20 rounded-full blur-[110px] pointer-events-none" />
 
-        {!isSuccess ? (
-          <div>
-            {/* Modal Header */}
-            <div className="pr-10 mb-6">
-              {/* Client's Official Logo & Saffron Heading Badge */}
-              <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                <img
-                  src="/logo-emblem.png"
-                  alt="Shree Madhav Enterprises"
-                  className="h-7 w-auto object-contain filter drop-shadow-xs"
-                />
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-[#ea580c] text-white shadow-md shadow-orange-600/20">
-                  <div className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-2.5 h-2.5 text-[#fef08a] fill-[#fef08a]" />
-                  </div>
-                  <span className="font-black tracking-wider text-[11px] sm:text-xs uppercase text-white">
-                    SHREE MADHAV ENTERPRISES
-                  </span>
-                </div>
-              </div>
-
-              <h3 
-                id="test-ride-modal-title" 
-                className="text-2xl sm:text-[28px] font-black text-[#14532d] uppercase tracking-tight leading-snug"
-              >
-                EXPERIENCE SILENT POWER <span className="text-[#ea580c]">BEFORE YOU BUY</span>
-              </h3>
-
-              <p className="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed">
-                Take our high-torque electric scooters &amp; commercial loaders for a test spin at our Jhalwa showroom or right at your doorstep in Prayagraj.
-              </p>
-            </div>
-
-            {/* Test Ride Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              
-              {/* 1. Model Selector */}
-              <div>
-                <label 
-                  htmlFor="modal-model-select" 
-                  className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5"
-                >
-                  Choose Your EV Model <span className="text-[#ea580c]">*</span>
-                </label>
-                <div className="relative">
-                  <select
-                    id="modal-model-select"
-                    value={selectedModel}
-                    onChange={(e) => setSelectedModel(e.target.value)}
-                    className="w-full h-11 px-3.5 pr-10 rounded-xl bg-white focus:bg-white border border-[#E6DAC7] focus:border-[#ea580c] text-stone-900 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#ea580c]/15 transition-all appearance-none cursor-pointer"
-                  >
-                    <optgroup label="⚡ Electric Scooters (Personal & Commuter)">
-                      {testRideVehicles
-                        .filter((v) => v.category === 'scooty')
-                        .map((v) => (
-                          <option key={v.id} value={v.id}>
-                            {v.name} — {v.rangeKm} Range • Top Speed {v.topSpeedKmH}
-                          </option>
-                        ))}
-                    </optgroup>
-                    <optgroup label="🛺 Commercial E-Rickshaws & Loaders">
-                      {testRideVehicles
-                        .filter((v) => v.category === 'rickshaw')
-                        .map((v) => (
-                          <option key={v.id} value={v.id}>
-                            {v.name} — {v.rangeKm} Range • DP ₹{v.downPayment.toLocaleString('en-IN')}
-                          </option>
-                        ))}
-                    </optgroup>
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-stone-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-
-                {/* Selected Model Spec Pill */}
-                {selectedVehicle && (
-                  <div className="mt-2 px-3 py-1.5 rounded-lg bg-[#FBF7EE] border border-[#E6DAC7] flex items-center justify-between text-[11px] text-stone-600 font-medium">
-                    <span className="flex items-center gap-1">
-                      <Gauge className="w-3.5 h-3.5 text-stone-500" />
-                      <span>{selectedVehicle.topSpeedKmH}</span>
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <BatteryCharging className="w-3.5 h-3.5 text-[#15803d]" />
-                      <span>{selectedVehicle.rangeKm} Range</span>
-                    </span>
-                    <span className="font-bold text-[#ea580c]">
-                      DP: ₹{selectedVehicle.downPayment.toLocaleString('en-IN')}*
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* 2. Ride Location Selector (Showroom vs Home Doorstep) */}
-              <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5">
-                  Test Ride Location <span className="text-[#ea580c]">*</span>
-                </label>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setRideType('showroom')}
-                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                      rideType === 'showroom'
-                        ? 'border-[#ea580c] bg-orange-50/50 shadow-xs ring-1 ring-[#ea580c]'
-                        : 'border-[#E6DAC7] bg-[#FBF7EE] hover:bg-stone-100/70 text-stone-600'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
-                        <Building2 className={`w-4 h-4 ${rideType === 'showroom' ? 'text-[#ea580c]' : 'text-stone-500'}`} />
-                        <span>Showroom Visit</span>
-                      </div>
-                      <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${
-                        rideType === 'showroom' ? 'border-[#ea580c] bg-[#ea580c]' : 'border-stone-300'
-                      }`}>
-                        {rideType === 'showroom' && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
-                      </div>
-                    </div>
-                    <span className="text-[11px] text-stone-500 leading-tight">
-                      Shaha Urf Pipal Gaon, Jhalwa
-                    </span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setRideType('home')}
-                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                      rideType === 'home'
-                        ? 'border-[#ea580c] bg-orange-50/50 shadow-xs ring-1 ring-[#ea580c]'
-                        : 'border-[#E6DAC7] bg-[#FBF7EE] hover:bg-stone-100/70 text-stone-600'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
-                        <Home className={`w-4 h-4 ${rideType === 'home' ? 'text-[#ea580c]' : 'text-stone-500'}`} />
-                        <span>Doorstep Delivery</span>
-                      </div>
-                      <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${
-                        rideType === 'home' ? 'border-[#ea580c] bg-[#ea580c]' : 'border-stone-300'
-                      }`}>
-                        {rideType === 'home' && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
-                      </div>
-                    </div>
-                    <span className="text-[11px] text-stone-500 leading-tight">
-                      Free delivery across Prayagraj
-                    </span>
-                  </button>
-                </div>
-              </div>
-
-              {/* 3. Name & WhatsApp Phone (2 Equal Columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div>
-                  <label 
-                    htmlFor="modal-name-input" 
-                    className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5"
-                  >
-                    Your Full Name <span className="text-[#ea580c]">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="modal-name-input"
-                      type="text"
-                      placeholder="e.g. Rahul Sharma"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="w-full h-11 px-3.5 pr-10 rounded-xl bg-white border border-[#E6DAC7] focus:border-[#ea580c] text-stone-900 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#ea580c]/15 transition-all placeholder:text-stone-400"
-                      autoComplete="name"
-                      required
-                    />
-                    <User className="w-4 h-4 text-stone-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  </div>
-                </div>
-
-                <div>
-                  <label 
-                    htmlFor="modal-phone-input" 
-                    className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5"
-                  >
-                    WhatsApp Mobile Number <span className="text-[#ea580c]">*</span>
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="modal-phone-input"
-                      type="tel"
-                      inputMode="numeric"
-                      autoComplete="tel"
-                      placeholder="e.g. 98765 43210"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="w-full h-11 px-3.5 pr-10 rounded-xl bg-white border border-[#E6DAC7] focus:border-[#ea580c] text-stone-900 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#ea580c]/15 transition-all placeholder:text-stone-400"
-                      required
-                    />
-                    <Phone className="w-4 h-4 text-stone-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  </div>
-                </div>
-              </div>
-
-              {/* 4. Date & Time Slot (2 Equal Columns) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div>
-                  <label 
-                    htmlFor="modal-date-input" 
-                    className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5"
-                  >
-                    Preferred Date
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="modal-date-input"
-                      type="date"
-                      value={preferredDate}
-                      min={new Date().toISOString().split('T')[0]}
-                      onChange={(e) => setPreferredDate(e.target.value)}
-                      className="w-full h-11 px-3.5 rounded-xl bg-white border border-[#E6DAC7] focus:border-[#ea580c] text-stone-900 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#ea580c]/15 transition-all cursor-pointer"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label 
-                    htmlFor="modal-time-select" 
-                    className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5"
-                  >
-                    Preferred Time Slot
-                  </label>
-                  <div className="relative">
-                    <select
-                      id="modal-time-select"
-                      value={preferredTime}
-                      onChange={(e) => setPreferredTime(e.target.value)}
-                      className="w-full h-11 px-3.5 pr-10 rounded-xl bg-white border border-[#E6DAC7] focus:border-[#ea580c] text-stone-900 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#ea580c]/15 transition-all appearance-none cursor-pointer"
-                    >
-                      <option value="10:00 AM - 01:00 PM (Morning)">10:00 AM – 01:00 PM (Morning)</option>
-                      <option value="01:00 PM - 04:00 PM (Afternoon)">01:00 PM – 04:00 PM (Afternoon)</option>
-                      <option value="04:00 PM - 07:00 PM (Evening)">04:00 PM – 07:00 PM (Evening)</option>
-                      <option value="07:00 PM - 08:30 PM (Night)">07:00 PM – 08:30 PM (Late Evening)</option>
-                    </select>
-                    <ChevronDown className="w-4 h-4 text-stone-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  </div>
-                </div>
-              </div>
-
-              {/* 5. Locality / Address in Prayagraj */}
-              <div>
-                <label 
-                  htmlFor="modal-locality-input" 
-                  className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1.5"
-                >
-                  Locality / Landmark in Prayagraj
-                </label>
-                <div className="relative">
-                  <input
-                    id="modal-locality-input"
-                    type="text"
-                    placeholder="e.g. Jhalwa, Civil Lines, Rajrooppur, Naini, Katra, Dhoomanganj..."
-                    value={locality}
-                    onChange={(e) => setLocality(e.target.value)}
-                    className="w-full h-11 px-3.5 pr-10 rounded-xl bg-white border border-[#E6DAC7] focus:border-[#ea580c] text-stone-900 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#ea580c]/15 transition-all placeholder:text-stone-400"
-                  />
-                  <MapPin className="w-4 h-4 text-stone-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* 6. High-Contrast CTA Button */}
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="w-full h-12 sm:h-13 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-orange-900/20 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99] group"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Confirm Free Test Ride</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-
-              {/* Trust Guarantees */}
-              <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-stone-500 font-medium">
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#15803d] flex-shrink-0" />
-                  <span>100% Free • No Obligation to Buy</span>
-                </div>
-                <div className="text-stone-400">
-                  Instant WhatsApp Booking Confirmation
-                </div>
-              </div>
-
-            </form>
+        {/* Sticky Header */}
+        <div className="relative z-10 flex-shrink-0 flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-white/10 bg-[#161616]/95 backdrop-blur-xl">
+          <div className="w-8 h-1 bg-white/20 rounded-full sm:hidden absolute left-1/2 -translate-x-1/2 top-2" />
+          
+          <div className="flex items-center gap-2.5">
+            <img 
+              src="/logo-emblem.png" 
+              alt="Shree Madhav Emblem" 
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain" 
+            />
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#ea580c]">
+              Free EV Test Ride
+            </p>
           </div>
-        ) : (
-          /* Success Screen */
-          <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#15803d] flex items-center justify-center mx-auto border border-emerald-200 shadow-sm">
-              <CheckCircle2 className="w-9 h-9" />
+
+          <button
+            onClick={onClose}
+            className="flex items-center justify-center w-10 h-10 bg-white/5 hover:bg-[#ea580c] border border-white/15 hover:border-[#ea580c] rounded-xl transition-all touch-manipulation cursor-pointer text-white"
+            aria-label="Close popup"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Scrollable Form Body */}
+        <div className="relative z-10 px-4 sm:px-7 py-5 sm:py-7 overflow-y-auto flex-1">
+          
+          {/* Header */}
+          <div className="text-center mb-5">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-[72px] sm:h-[72px] bg-gradient-to-br from-[#ea580c]/25 to-[#ea580c]/5 rounded-2xl border border-[#ea580c]/30 mb-4 shadow-[0_0_30px_rgba(234,88,12,0.25)]">
+              <Bike className="w-7 h-7 sm:w-8 sm:h-8 text-[#ea580c]" />
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15803d]/10 text-[#15803d] text-xs font-bold uppercase tracking-wider border border-[#15803d]/30">
-              <Sparkles className="w-3.5 h-3.5 text-[#eab308]" />
-              <span>Test Ride Reserved Successfully</span>
-            </div>
-
-            <h3 className="text-2xl font-black text-[#14532d] uppercase tracking-tight">
-              We&apos;re Getting Your EV Ready!
+            <h3 className="text-2xl sm:text-3xl font-black uppercase text-white leading-[1.1] mb-2.5">
+              Book Your Free<br />
+              <span className="text-[#ea580c]">Test Ride</span>
             </h3>
 
-            <p className="text-xs sm:text-sm text-stone-600 max-w-sm mx-auto leading-relaxed">
-              Your test ride for <strong>{selectedVehicle.name}</strong> has been scheduled for <strong>{preferredDate || 'Earliest Slot'}</strong> ({preferredTime}). Our showroom advisor will contact you on <strong>{phone}</strong>.
+            <p className="flex items-start justify-center gap-2 text-xs sm:text-sm text-gray-400 max-w-sm mx-auto leading-relaxed">
+              <Zap className="w-4 h-4 text-[#ea580c] flex-shrink-0 mt-0.5" />
+              <span>
+                Experience <span className="text-white font-semibold">silent electric torque</span> and zero petrol queues on Prayagraj roads.
+              </span>
             </p>
+          </div>
 
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button
-                onClick={onClose}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
-              >
-                Done
-              </button>
-              <button
-                onClick={() => setIsSuccess(false)}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#FBF7EE] hover:bg-stone-200 text-stone-800 border border-[#E6DAC7] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
-              >
-                Book for Another Person
-              </button>
+          {/* Scarcity Badge */}
+          <div className="mb-5 flex items-center gap-3 px-4 py-3 bg-[#ea580c]/10 border border-[#ea580c]/25 rounded-xl">
+            <span className="relative flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-lg bg-[#ea580c]/20 border border-[#ea580c]/30">
+              <Clock className="w-4 h-4 text-[#ea580c]" />
+              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#ea580c] animate-pulse" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-0.5">
+                Limited Slots Today
+              </p>
+              <p className="text-xs text-gray-300">
+                Only <span className="text-white font-bold">4 test ride slots</span> left in Jhalwa today — reserve now
+              </p>
             </div>
           </div>
-        )}
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            
+            {/* Full Name */}
+            <div>
+              <label htmlFor="tr-name" className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1.5">
+                Full Name <span className="text-[#ea580c]">*</span>
+              </label>
+              <div className="relative">
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                <input
+                  id="tr-name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter your full name"
+                  className={fieldClass}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Phone Number */}
+            <div>
+              <label htmlFor="tr-phone" className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1.5">
+                Phone Number (WhatsApp) <span className="text-[#ea580c]">*</span>
+              </label>
+              <div className="relative">
+                <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                <input
+                  id="tr-phone"
+                  type="tel"
+                  inputMode="numeric"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="10-digit mobile number"
+                  maxLength={10}
+                  pattern="[0-9]{10}"
+                  className={fieldClass}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Choose EV Model */}
+            <div>
+              <label htmlFor="tr-model" className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1.5">
+                Choose EV Model
+              </label>
+              <div className="relative">
+                <Bike className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none z-10" />
+                <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                <select
+                  id="tr-model"
+                  name="model"
+                  value={formData.model}
+                  onChange={handleInputChange}
+                  className={`${fieldClass} appearance-none pr-10 cursor-pointer`}
+                  style={{ color: '#ffffff' }}
+                >
+                  {testRideVehicles.map((vehicle) => (
+                    <option key={vehicle.id} value={vehicle.id} style={{ color: '#ffffff', background: '#111111' }}>
+                      {vehicle.name} ({vehicle.rangeKm} • {vehicle.topSpeedKmH})
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Test Ride Location */}
+            <div>
+              <label htmlFor="tr-location" className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1.5">
+                Test Ride Option
+              </label>
+              <div className="relative">
+                <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none z-10" />
+                <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                <select
+                  id="tr-location"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleInputChange}
+                  className={`${fieldClass} appearance-none pr-10 cursor-pointer`}
+                  style={{ color: '#ffffff' }}
+                >
+                  <option value="Showroom Visit (Jhalwa Crossing, Prayagraj)" style={{ color: '#ffffff', background: '#111111' }}>
+                    Showroom Visit (Beside Jhalwa Crossing, Prayagraj)
+                  </option>
+                  <option value="Doorstep Test Ride (At my Home / Office in Prayagraj)" style={{ color: '#ffffff', background: '#111111' }}>
+                    Doorstep Test Ride (At My Home / Office in Prayagraj)
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            {/* Message / Preferred Slot */}
+            <div>
+              <label htmlFor="tr-message" className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1.5">
+                Preferred Slot / Notes <span className="text-gray-500 normal-case tracking-normal">(optional)</span>
+              </label>
+              <div className="relative">
+                <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-gray-500 pointer-events-none" />
+                <textarea
+                  id="tr-message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="e.g. Visiting today around 4:00 PM, interested in ₹2,999 festive scheme..."
+                  rows={2}
+                  className={`${fieldClass} resize-none`}
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={!isFormValid()}
+              className="group w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-gradient-to-r from-[#ea580c] via-[#f97316] to-[#15803d] text-white font-black uppercase tracking-wide rounded-xl hover:brightness-110 hover:shadow-[0_0_45px_rgba(234,88,12,0.55)] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed text-sm sm:text-base cursor-pointer shadow-lg mt-2"
+            >
+              <Phone className="w-5 h-5" />
+              <span>Confirm Free Test Ride</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 group-disabled:translate-x-0 transition-transform" />
+            </button>
+          </form>
+
+          {/* Trust Indicators */}
+          <div className="mt-5 pt-5 border-t border-white/10">
+            <div className="grid grid-cols-3 gap-2">
+              {TRUST_POINTS.map(({ icon: Icon, value, label }) => (
+                <div key={label} className="flex flex-col items-center text-center gap-1">
+                  <Icon className="w-5 h-5 text-[#ea580c]" />
+                  <div className="text-base sm:text-lg font-black text-white leading-none">{value}</div>
+                  <div className="text-[10px] text-gray-400 leading-tight">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-400">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+            <span>Authorized Dealership &bull; Shaha Urf Pipal Gaon, Jhalwa</span>
+          </p>
+        </div>
       </div>
     </div>
   );

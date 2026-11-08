@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { QuickActionDock } from './components/QuickActionDock';
@@ -7,22 +7,32 @@ import { RacingSection } from './components/RacingSection';
 import { VehicleModal } from './components/VehicleModal';
 import { TechEcosystem } from './components/TechEcosystem';
 import { ScratchAndWin } from './components/ScratchAndWin';
-import { Calculators } from './components/Calculators';
-import { CommercialHub } from './components/CommercialHub';
 import { BatteryExchange } from './components/BatteryExchange';
-import { BookTestRide } from './components/BookTestRide';
 import { ReelVault } from './components/ReelVault';
 import { RoadShowcase } from './components/RoadShowcase';
 import { DealerLocator } from './components/DealerLocator';
 import { Footer } from './components/Footer';
 import { FloatingBar } from './components/FloatingBar';
 import { TestRideModal } from './components/TestRideModal';
+import { WhatsAppChatWidget } from './components/WhatsAppChatWidget';
 import { Vehicle } from './types';
 
 export function App() {
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
   const [isTestRideModalOpen, setIsTestRideModalOpen] = useState(false);
   const [testRideInitialModelId, setTestRideInitialModelId] = useState<string | undefined>(undefined);
+
+  // Auto-open test ride / booking modal once on 1st visit after 16 seconds (identical to Elixomedia GrowthCallPopup)
+  useEffect(() => {
+    const hasSeenModal = sessionStorage.getItem('madhav_test_ride_auto_opened');
+    if (!hasSeenModal) {
+      const timer = setTimeout(() => {
+        setIsTestRideModalOpen(true);
+        sessionStorage.setItem('madhav_test_ride_auto_opened', 'true');
+      }, 16000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const handleOpenTestRide = (modelId?: string) => {
     setTestRideInitialModelId(modelId);
@@ -127,12 +137,15 @@ export function App() {
         onBookTestRide={(modelId) => handleOpenTestRide(modelId)}
       />
 
-      {/* 17. Quick Test Ride Modal */}
+      {/* 17. Free Test Ride & Spot Booking Modal (Elixomedia Style) */}
       <TestRideModal
         isOpen={isTestRideModalOpen}
         onClose={() => setIsTestRideModalOpen(false)}
         initialModelId={testRideInitialModelId}
       />
+
+      {/* 18. Floating WhatsApp Chat Widget (Elixomedia Style) */}
+      <WhatsAppChatWidget />
     </div>
   );
 }
