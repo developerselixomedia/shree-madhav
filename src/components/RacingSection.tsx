@@ -101,38 +101,38 @@ export const RacingSection: React.FC<RacingSectionProps> = ({ onExplore }) => {
     >
       {/* Faint Background Watermark */}
       <div className="absolute top-10 sm:top-16 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 overflow-hidden w-full text-center">
-        <span className="text-6xl sm:text-8xl lg:text-9xl font-black italic tracking-tighter text-[#14532d]/[0.04] uppercase whitespace-nowrap">
+        <span className="text-6xl sm:text-8xl lg:text-9xl font-black italic tracking-tighter text-[#0A0A0A]/[0.03] uppercase whitespace-nowrap">
           SHREE MADHAV
         </span>
       </div>
 
       {/* 1. Shree Madhav Brand Emblem & Racing Badge */}
       <div className="mb-4 flex justify-center px-4 relative z-10">
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#FDFBF7] border border-[#E6DAC7] shadow-xs hover:border-[#ea580c]/50 transition-colors">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#FDFBF7] border border-[#E6DAC7] shadow-xs hover:border-[#059669]/50 transition-colors">
           <img
             src="/logo-emblem.png"
             alt="Shree Madhav Enterprises"
             className="h-6 sm:h-7 w-auto object-contain"
           />
-          <span className="font-black italic text-sm sm:text-base text-[#15803d] tracking-tight uppercase">
+          <span className="font-black italic text-sm sm:text-base text-[#0A0A0A] tracking-tight uppercase">
             SHREE MADHAV
           </span>
-          <span className="bg-[#ea580c] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[10px] sm:text-[11px] tracking-wider uppercase transform -skew-x-12 shadow-xs">
+          <span className="bg-[#059669] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[10px] sm:text-[11px] tracking-wider uppercase transform -skew-x-12 shadow-xs">
             RACING
           </span>
         </div>
       </div>
 
       {/* 2. Headline: Racing DNA Unleashed #ShreeMadhavEV */}
-      <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-[48px] lg:leading-[57.6px] text-[#15803d] my-4 px-4 tracking-tight relative z-10">
-        Racing DNA Unleashed <span className="text-[#ea580c]">#ShreeMadhavEV</span>
+      <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-[48px] lg:leading-[57.6px] text-[#0A0A0A] my-4 px-4 tracking-tight relative z-10">
+        Racing DNA Unleashed <span className="text-[#059669]">#ShreeMadhavEV</span>
       </h2>
 
-      {/* 3. Primary CTA Button: Saffron radiant gradient */}
+      {/* 3. Primary CTA Button: Emerald green */}
       <div className="mb-8 sm:mb-12">
         <button
           onClick={handleAction}
-          className="btnBlue inline-flex items-center justify-center font-bold text-sm text-white bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 rounded-full px-6 h-[44px] sm:h-[48px] shadow-[0_8px_25px_rgba(234,88,12,0.3)] transition-all cursor-pointer group"
+          className="btnBlue inline-flex items-center justify-center font-bold text-sm text-white bg-[#059669] hover:bg-[#047857] rounded-full px-7 h-[44px] sm:h-[48px] shadow-[0_8px_25px_rgba(5,150,105,0.3)] hover:scale-105 transition-all cursor-pointer group"
         >
           <span>Explore Now</span>
           <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
@@ -180,24 +180,24 @@ export const RacingSection: React.FC<RacingSectionProps> = ({ onExplore }) => {
             {isMuted ? (
               <VolumeX className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2]" />
             ) : (
-              <Volume2 className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2] text-[#ffcc00]" />
+              <Volume2 className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2] text-[#10b981]" />
             )}
           </button>
 
-          {/* 5. Video Slide-Up Bottom Overlay: Deep Emerald Darkroom Backdrop */}
+          {/* 5. Video Slide-Up Bottom Overlay: Deep Charcoal Darkroom Backdrop */}
           <div
-            className={`videoOverlay absolute left-0 right-0 w-full bg-[#08120B]/90 backdrop-blur-md border-t border-[#eab308]/40 text-center py-6 sm:py-8 px-4 transition-all duration-500 ease-out z-10 ${
+            className={`videoOverlay absolute left-0 right-0 w-full bg-[#0A0A0A]/90 backdrop-blur-md border-t border-[#059669]/40 text-center py-6 sm:py-8 px-4 transition-all duration-500 ease-out z-10 ${
               showOverlay
                 ? 'bottom-0 opacity-100 translate-y-0'
                 : '-bottom-44 opacity-0 translate-y-10 pointer-events-none'
             }`}
           >
             <h3 className="font-sans font-semibold text-2xl sm:text-3xl lg:text-[36px] text-white leading-tight mb-4">
-              Racing DNA Unleashed <span className="text-[#ea580c]">#ShreeMadhavEV</span>
+              Racing DNA Unleashed <span className="text-[#059669]">#ShreeMadhavEV</span>
             </h3>
             <button
               onClick={handleAction}
-              className="btnBlue inline-flex items-center justify-center font-bold text-sm text-white bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 rounded-full px-6 h-[44px] sm:h-[48px] shadow-lg shadow-orange-500/25 transition-all cursor-pointer group"
+              className="btnBlue inline-flex items-center justify-center font-bold text-sm text-white bg-[#059669] hover:bg-[#047857] rounded-full px-7 h-[44px] sm:h-[48px] shadow-lg shadow-emerald-500/25 hover:scale-105 transition-all cursor-pointer group"
             >
               <span>Explore Now</span>
               <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />

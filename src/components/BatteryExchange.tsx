@@ -23,7 +23,7 @@ export const BatteryExchange: React.FC = () => {
   return (
     <section 
       id="battery-exchange" 
-      className="w-full bg-[#FBF7EE] text-[#1E291F] font-sans selection:bg-[#ea580c] selection:text-white overflow-hidden border-t-2 border-b-2 border-[#E6DAC7]"
+      className="w-full bg-[#FBF7EE] text-[#1E291F] font-sans selection:bg-[#059669] selection:text-white overflow-hidden border-t-2 border-b-2 border-[#E6DAC7]"
       aria-label="Exchange and Upgrade to Lithium-Ion Power"
     >
       {/* Swiss Architectural Grid (Spans Full Width without outer margin/padding boxes) */}
@@ -37,24 +37,24 @@ export const BatteryExchange: React.FC = () => {
             
             {/* Row 1 */}
             <div className="p-5 sm:p-10 lg:p-12 xl:p-14 border-b-2 border-[#E6DAC7] bg-[#FDFBF7]">
-              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#ea580c] block mb-2">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#059669] block mb-2">
                 SHREE MADHAV ENTERPRISES &bull; BATTERY TRADE-IN PROGRAM
               </span>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] font-black uppercase tracking-tight text-[#15803d] leading-none break-words">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] font-black uppercase tracking-tight text-[#0A0A0A] leading-none break-words">
                 EXCHANGE &
               </h2>
             </div>
 
             {/* Row 2 */}
             <div className="p-5 sm:p-10 lg:p-12 xl:p-14 border-b-2 border-[#E6DAC7] bg-[#FDFBF7]">
-              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] font-black uppercase tracking-tight text-[#ea580c] leading-none break-words">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] font-black uppercase tracking-tight text-[#059669] leading-none break-words">
                 UPGRADE TO LITHIUM-ION
               </h2>
             </div>
 
             {/* Row 3 */}
             <div className="p-5 sm:p-10 lg:p-12 xl:p-14 border-b-2 border-[#E6DAC7] bg-[#FDFBF7]">
-              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] font-black uppercase tracking-tight text-[#15803d] leading-none break-words">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] font-black uppercase tracking-tight text-[#0A0A0A] leading-none break-words">
                 POWER THAT ENDURES.
               </h2>
             </div>
@@ -64,7 +64,7 @@ export const BatteryExchange: React.FC = () => {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={handleWhatsAppExchange}
-                  className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-4 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-xl shadow-orange-900/20 hover:scale-105 cursor-pointer group"
+                  className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-4 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-xl shadow-emerald-900/20 hover:scale-105 cursor-pointer group"
                 >
                   <span>LAUNCH ON WHATSAPP</span>
                   <span className="group-hover:translate-x-1.5 transition-transform text-white">→</span>
@@ -72,9 +72,9 @@ export const BatteryExchange: React.FC = () => {
 
                 <button
                   onClick={() => setIsCalculatorOpen(true)}
-                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#FDFBF7] hover:bg-[#15803d] hover:text-white text-[#15803d] font-mono text-xs font-bold uppercase tracking-wider border-2 border-[#15803d] transition-colors cursor-pointer shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#FDFBF7] hover:bg-stone-900 hover:text-white text-stone-900 font-mono text-xs font-bold uppercase tracking-wider border-2 border-stone-800 transition-colors cursor-pointer shadow-sm"
                 >
-                  <RefreshCw className="w-3.5 h-3.5 text-[#ea580c]" />
+                  <RefreshCw className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Calculate Old Battery Value</span>
                 </button>
               </div>
@@ -134,7 +134,7 @@ export const BatteryExchange: React.FC = () => {
 
               {/* Bottom Floating White Pill Badge */}
               <div className="absolute bottom-5 left-5 right-5 pointer-events-none">
-                <span className="px-4 py-2 rounded-full bg-[#FDFBF7] text-[#14532d] font-mono text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-2xl border-2 border-[#eab308]/60 inline-block">
+                <span className="px-4 py-2 rounded-full bg-[#FDFBF7] text-[#059669] font-mono text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-2xl border-2 border-[#059669]/40 inline-block">
                   GRADE-A LFP CELL LOAD TESTING &amp; UPGRADE
                 </span>
               </div>
@@ -153,7 +153,7 @@ export const BatteryExchange: React.FC = () => {
               <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-stone-500 mb-2">
                 BATTERY UPGRADE
               </div>
-              <div className="text-xs sm:text-sm font-mono font-black uppercase tracking-widest text-[#ea580c] leading-relaxed">
+              <div className="text-xs sm:text-sm font-mono font-black uppercase tracking-widest text-[#059669] leading-relaxed">
                 L I T H I U M · I R O N · P H O S P H A T E
               </div>
             </div>
@@ -162,7 +162,7 @@ export const BatteryExchange: React.FC = () => {
               <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-stone-500 mb-1">
                 WARRANTY STANDARD
               </div>
-              <div className="text-xs sm:text-sm font-mono font-bold uppercase text-[#14532d] tracking-wider">
+              <div className="text-xs sm:text-sm font-mono font-bold uppercase text-[#059669] tracking-wider">
                 3 YEARS 100% REPLACEMENT
               </div>
             </div>
@@ -173,7 +173,7 @@ export const BatteryExchange: React.FC = () => {
             
             {/* Top Sub-Row: High-Impact Bold Uppercase Headline */}
             <div className="p-6 sm:p-8 lg:p-10 border-b-2 border-[#E6DAC7] bg-[#FDFBF7]">
-              <h3 className="text-lg sm:text-2xl lg:text-[26px] xl:text-[30px] font-black uppercase text-[#14532d] leading-snug tracking-tight">
+              <h3 className="text-lg sm:text-2xl lg:text-[26px] xl:text-[30px] font-black uppercase text-[#0A0A0A] leading-snug tracking-tight">
                 REPLACE SLOW, HEAVY LEAD-ACID BATTERIES WITH AUTOMOTIVE-GRADE LITHIUM LFP. DOUBLE YOUR RANGE, CUT CHARGING TIME TO 3 HOURS, AND PREVENT YEARLY REPLACEMENT EXPENSES.
               </h3>
             </div>
@@ -201,10 +201,10 @@ export const BatteryExchange: React.FC = () => {
 
       </div>
 
-      {/* ================= TRADE-IN CALCULATOR MODAL: DEEP EMERALD DARKROOM BACKDROP ================= */}
+      {/* ================= TRADE-IN CALCULATOR MODAL ================= */}
       {isCalculatorOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08120B]/85 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg bg-[#FDFBF7] border-2 border-[#eab308] p-6 sm:p-8 rounded-2xl shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg bg-[#FDFBF7] border-2 border-[#E6DAC7] p-6 sm:p-8 rounded-2xl shadow-2xl">
             <button
               onClick={() => setIsCalculatorOpen(false)}
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-stone-100 text-stone-700 transition-colors cursor-pointer"
@@ -214,8 +214,8 @@ export const BatteryExchange: React.FC = () => {
             </button>
 
             <div className="flex items-center gap-2 mb-4">
-              <RefreshCw className="w-5 h-5 text-[#ea580c]" />
-              <h3 className="text-lg font-black uppercase text-[#14532d]">
+              <RefreshCw className="w-5 h-5 text-[#059669]" />
+              <h3 className="text-lg font-black uppercase text-[#0A0A0A]">
                 Old Battery Buyback Estimator
               </h3>
             </div>
@@ -233,7 +233,7 @@ export const BatteryExchange: React.FC = () => {
                   id="battery-modal-select"
                   value={oldBatteryType}
                   onChange={(e) => handleTypeChange(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-[#E6DAC7] text-xs font-bold bg-white text-stone-800 focus:outline-none focus:border-[#ea580c] cursor-pointer"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#E6DAC7] text-xs font-bold bg-white text-stone-800 focus:outline-none focus:border-[#059669] cursor-pointer"
                 >
                   <option value="lead-acid-48v">48V Lead-Acid Battery Set (4 Units) — Up to ₹4,000 Off</option>
                   <option value="lead-acid-60v">60V Lead-Acid Battery Set (5 Units) — Up to ₹5,000 Off</option>
@@ -244,7 +244,7 @@ export const BatteryExchange: React.FC = () => {
 
               <div className="p-4 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] text-center">
                 <span className="text-xs font-mono uppercase text-stone-500 block">Instant Trade-in Discount:</span>
-                <div className="text-3xl font-black text-[#ea580c] mt-1">
+                <div className="text-3xl font-black text-[#059669] mt-1">
                   Up to ₹{estimatedDiscount.toLocaleString('en-IN')}*
                 </div>
                 <span className="text-[11px] text-stone-600 block mt-1">

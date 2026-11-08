@@ -40,21 +40,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
               />
               <div className="flex flex-col">
                 <div className="flex items-center text-lg sm:text-xl font-black tracking-tight leading-none">
-                  <span className="text-[#ea580c]">SHREE </span>
-                  <span className="text-[#15803d] ml-1">MADHAV</span>
+                  <span className="text-[#0A0A0A]">SHREE </span>
+                  <span className="text-[#059669] ml-1">MADHAV</span>
                 </div>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <span className="h-[1.5px] w-2.5 bg-[#eab308]" />
-                  <span className="text-[9px] font-bold tracking-[0.22em] text-[#166534] uppercase font-mono">
+                  <span className="h-[1.5px] w-2.5 bg-[#059669]" />
+                  <span className="text-[9px] font-bold tracking-[0.22em] text-stone-600 uppercase font-mono">
                     ENTERPRISES
                   </span>
-                  <span className="h-[1.5px] w-2.5 bg-[#eab308]" />
+                  <span className="h-[1.5px] w-2.5 bg-[#059669]" />
                 </div>
               </div>
             </a>
 
             {/* Desktop Navigation Links — Clean, Uncongested & Relevant */}
-            <div className="hidden lg:flex items-center gap-7 xl:gap-8 text-[13px] font-bold text-[#1E291F]">
+            <div className="hidden lg:flex items-center gap-7 xl:gap-8 text-[13px] font-bold text-stone-800">
               
               {/* 1. Vehicles Dropdown */}
               <div 
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
               >
                 <a 
                   href="#vehicles"
-                  className="flex items-center gap-1 hover:text-[#ea580c] py-2 transition-colors cursor-pointer"
+                  className="flex items-center gap-1 hover:text-[#059669] py-2 transition-colors cursor-pointer"
                 >
                   <span>Vehicles</span>
                   <ChevronDown className={`w-3.5 h-3.5 text-stone-500 transition-transform ${vehiclesOpen ? 'rotate-180' : ''}`} />
@@ -75,25 +75,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
                     <a 
                       href="#vehicles" 
                       onClick={() => setVehiclesOpen(false)}
-                      className="flex items-center justify-between p-3 rounded-xl hover:bg-orange-50/70 text-xs font-bold text-[#15803d] hover:text-[#ea580c] transition-colors"
+                      className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50/70 text-xs font-bold text-stone-900 hover:text-[#059669] transition-colors"
                     >
                       <div className="flex items-center gap-2.5">
-                        <Bike className="w-4 h-4 text-[#ea580c]" />
+                        <Bike className="w-4 h-4 text-[#059669]" />
                         <div>
                           <div>Electric Scooters (EV Scooty)</div>
                           <div className="text-[10px] text-stone-500 font-normal">Falcon EV &bull; Thunder Max &bull; Neo</div>
                         </div>
                       </div>
-                      <span className="text-[10px] text-[#ea580c] bg-orange-100/70 border border-orange-200 px-2 py-0.5 rounded-full font-black">₹2,999 DP</span>
+                      <span className="text-[10px] text-[#059669] bg-emerald-100/70 border border-emerald-200 px-2 py-0.5 rounded-full font-black">₹2,999 DP</span>
                     </a>
 
                     <a 
                       href="#vehicles" 
                       onClick={() => setVehiclesOpen(false)}
-                      className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50/70 text-xs font-bold text-[#15803d] hover:text-[#ea580c] transition-colors"
+                      className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50/70 text-xs font-bold text-stone-900 hover:text-[#059669] transition-colors"
                     >
                       <div className="flex items-center gap-2.5">
-                        <span className="w-4 h-4 text-center font-black text-xs text-[#15803d]">🛺</span>
+                        <span className="w-4 h-4 text-center font-black text-xs text-[#059669]">🛺</span>
                         <div>
                           <div>Commercial E-Rickshaws</div>
                           <div className="text-[10px] text-stone-500 font-normal">Shaan Rozgaar (4+1 Passenger)</div>
@@ -105,10 +105,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
                     <a 
                       href="#road-showcase" 
                       onClick={() => setVehiclesOpen(false)}
-                      className="flex items-center justify-between p-3 rounded-xl hover:bg-amber-50/70 text-xs font-bold text-[#15803d] hover:text-[#ea580c] transition-colors"
+                      className="flex items-center justify-between p-3 rounded-xl hover:bg-stone-100/70 text-xs font-bold text-stone-900 hover:text-[#059669] transition-colors"
                     >
                       <div className="flex items-center gap-2.5">
-                        <Sparkles className="w-4 h-4 text-[#eab308]" />
+                        <Sparkles className="w-4 h-4 text-[#059669]" />
                         <div>
                           <div>Prayagraj Highway Expressway</div>
                           <div className="text-[10px] text-stone-500 font-normal">Interactive Top-Down Vehicle Loop</div>
@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
               {/* 2. Battery Hub */}
               <a 
                 href="#battery-exchange" 
-                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer"
+                className="hover:text-[#059669] py-2 transition-colors cursor-pointer"
               >
                 Battery Hub
               </a>
@@ -137,10 +137,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
                   const el = document.getElementById('offers');
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer flex items-center gap-1.5"
+                className="hover:text-[#059669] py-2 transition-colors cursor-pointer flex items-center gap-1.5"
               >
                 <span>Festive Offers</span>
-                <span className="text-[10px] font-black text-[#ea580c] bg-orange-100 border border-orange-200/80 px-1.5 py-0.2 rounded-full">
+                <span className="text-[10px] font-black text-white bg-[#059669] px-2 py-0.5 rounded-full shadow-2xs">
                   ₹2,999 DP
                 </span>
               </a>
@@ -148,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
               {/* 4. Showroom & Service */}
               <a 
                 href="#dealership" 
-                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer"
+                className="hover:text-[#059669] py-2 transition-colors cursor-pointer"
               >
                 Showroom
               </a>
@@ -157,7 +157,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
           </div>
 
           {/* Right: Clean, Uncluttered Action Utilities */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-bold text-[#1E291F]">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-bold text-stone-800">
             {/* Region Indicator */}
             <div className="flex items-center gap-1.5 text-stone-600">
               <span className="text-sm">🇮🇳</span>
@@ -170,18 +170,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
             <a 
               href={`tel:${SHOWROOM_INFO.phone}`} 
               title={`Call Showroom: ${SHOWROOM_INFO.phoneFormatted}`}
-              className="flex items-center gap-1.5 text-stone-700 hover:text-[#15803d] transition-colors"
+              className="flex items-center gap-1.5 text-stone-700 hover:text-[#059669] transition-colors"
             >
-              <Headphones className="w-3.5 h-3.5 text-[#15803d]" />
+              <Headphones className="w-3.5 h-3.5 text-[#059669]" />
               <span>{SHOWROOM_INFO.phoneFormatted}</span>
             </a>
 
             {/* High-Impact Book Test Ride CTA */}
             <button 
               onClick={() => onOpenTestRide()} 
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#ea580c] to-[#15803d] hover:brightness-110 text-white font-black text-xs uppercase tracking-wider shadow-sm hover:scale-105 transition-all cursor-pointer flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl bg-[#0A0A0A] hover:bg-[#059669] text-white font-black text-xs uppercase tracking-wider shadow-sm hover:scale-105 transition-all cursor-pointer flex items-center gap-1.5"
             >
-              <Bike className="w-3.5 h-3.5" />
+              <Bike className="w-3.5 h-3.5 text-[#10b981]" />
               <span>Book Test Ride</span>
             </button>
           </div>
@@ -190,7 +190,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
           <div className="flex lg:hidden items-center gap-3">
             <button 
               onClick={() => onOpenTestRide()}
-              className="px-3.5 py-1.5 rounded-lg bg-[#ea580c] text-white font-black text-xs uppercase shadow-sm"
+              className="px-3.5 py-1.5 rounded-lg bg-[#059669] text-white font-black text-xs uppercase shadow-sm"
             >
               Test Ride
             </button>
@@ -210,19 +210,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
             <a 
               href="#vehicles" 
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-stone-100 text-xs font-bold uppercase text-[#15803d]"
+              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-stone-100 text-xs font-bold uppercase text-stone-900"
             >
               <span>Electric Scooters (EV Scooty)</span>
-              <span className="text-[10px] text-[#ea580c] bg-orange-100/70 border border-orange-200 px-2 py-0.5 rounded-full font-black">₹2,999 DP</span>
+              <span className="text-[10px] text-[#059669] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-black">₹2,999 DP</span>
             </a>
 
             <a 
               href="#vehicles" 
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-stone-100 text-xs font-bold uppercase text-[#15803d]"
+              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-stone-100 text-xs font-bold uppercase text-stone-900"
             >
               <span>Commercial E-Rickshaws</span>
-              <span className="text-[10px] text-emerald-800 bg-emerald-100/70 border border-emerald-200 px-2 py-0.5 rounded-full font-black">Rozgaar</span>
+              <span className="text-[10px] text-[#059669] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-black">Rozgaar</span>
             </a>
 
             <a 
@@ -236,7 +236,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
             <a 
               href="#offers" 
               onClick={() => { setMobileMenuOpen(false); onOpenOffer(); }}
-              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50/70 border border-orange-200/60 text-xs font-black uppercase text-[#ea580c]"
+              className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200/60 text-xs font-black uppercase text-[#059669]"
             >
               <span>Festive Scratch &amp; Win Offers</span>
               <span>🎁</span>
@@ -253,7 +253,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
             <a 
               href="#dealership" 
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3.5 py-2.5 rounded-xl hover:bg-stone-100 text-xs font-bold uppercase text-[#15803d]"
+              className="block px-3.5 py-2.5 rounded-xl hover:bg-stone-100 text-xs font-bold uppercase text-[#059669]"
             >
               Showroom Locator (Jhalwa, Prayagraj)
             </a>
@@ -261,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
             <div className="pt-2 px-1">
               <a 
                 href={`tel:${SHOWROOM_INFO.phone}`}
-                className="block text-center py-2.5 rounded-xl bg-[#15803d] hover:bg-[#14532d] text-white font-bold text-xs uppercase shadow-sm"
+                className="block text-center py-2.5 rounded-xl bg-[#0A0A0A] hover:bg-[#059669] text-white font-bold text-xs uppercase shadow-sm transition-colors"
               >
                 📞 Call Showroom: {SHOWROOM_INFO.phoneFormatted}
               </a>

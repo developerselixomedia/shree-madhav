@@ -20,11 +20,11 @@ export const FloatingBar: React.FC<FloatingBarProps> = ({ onOpenTestRide, onOpen
 
   return (
     <>
-      {/* Floating Back to Top Button (Saffron) */}
+      {/* Floating Back to Top Button (Emerald) */}
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-20 sm:bottom-6 right-6 z-40 p-3 rounded-full bg-[#ea580c] hover:bg-[#c2410c] text-white shadow-2xl shadow-orange-900/40 transition-all hover:scale-110 cursor-pointer hidden sm:flex items-center justify-center border border-[#fef08a]/30"
+          className="fixed bottom-20 sm:bottom-6 right-6 z-40 p-3 rounded-full bg-[#059669] hover:bg-[#047857] text-white shadow-2xl shadow-emerald-900/40 transition-all hover:scale-110 cursor-pointer hidden sm:flex items-center justify-center border border-[#059669]/40"
           aria-label="Back to Top"
         >
           <ArrowUp className="w-5 h-5 font-bold" />
@@ -37,9 +37,9 @@ export const FloatingBar: React.FC<FloatingBarProps> = ({ onOpenTestRide, onOpen
           {/* 1. Call */}
           <a
             href={`tel:${SHOWROOM_INFO.phone}`}
-            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-[#FBF7EE] border border-[#E6DAC7] text-[#15803d]"
+            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-[#FBF7EE] border border-[#E6DAC7] text-[#0A0A0A]"
           >
-            <Phone className="w-4 h-4 text-[#15803d] mb-0.5" />
+            <Phone className="w-4 h-4 text-[#059669] mb-0.5" />
             <span className="text-[10px] font-bold uppercase">Call</span>
           </a>
 
@@ -48,25 +48,25 @@ export const FloatingBar: React.FC<FloatingBarProps> = ({ onOpenTestRide, onOpen
             href={`https://wa.me/${SHOWROOM_INFO.whatsapp}?text=Hello%20Shree%20Madhav%20Enterprises,%20I%20would%20like%20to%20know%20more%20about%20your%20EV%20scooters%20and%20offers.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-[#FBF7EE] border border-[#E6DAC7] text-[#25D366]"
+            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-[#FBF7EE] border border-[#E6DAC7] text-[#059669]"
           >
-            <MessageCircle className="w-4 h-4 text-[#25D366] mb-0.5" />
+            <MessageCircle className="w-4 h-4 text-[#059669] mb-0.5" />
             <span className="text-[10px] font-bold uppercase">WhatsApp</span>
           </a>
 
           {/* 3. ₹2,999 Offer */}
           <button
             onClick={onOpenOffer}
-            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-amber-50/80 border border-amber-300/80 text-[#ea580c]"
+            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-[#FBF7EE] border border-[#059669]/40 text-[#059669]"
           >
-            <Sparkles className="w-4 h-4 text-[#eab308] mb-0.5" />
+            <Sparkles className="w-4 h-4 text-[#059669] mb-0.5" />
             <span className="text-[10px] font-black uppercase">₹2,999 Deal</span>
           </button>
 
           {/* 4. Test Ride */}
           <button
             onClick={onOpenTestRide}
-            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-gradient-to-r from-[#ea580c] to-[#15803d] text-white shadow-md font-black"
+            className="flex flex-col items-center justify-center p-1.5 rounded-sm bg-[#059669] hover:bg-[#047857] text-white shadow-md font-black"
           >
             <Calendar className="w-4 h-4 mb-0.5" />
             <span className="text-[10px] uppercase tracking-wider">Test Ride</span>

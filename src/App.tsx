@@ -50,7 +50,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#FBF7EE] text-[#1E291F] flex flex-col font-sans selection:bg-[#ea580c] selection:text-white">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#FBF7EE] text-[#0A0A0A] flex flex-col font-sans selection:bg-[#059669] selection:text-white">
       {/* 1. TVS-Style Header (White with Navy typography & Red CTAs) */}
       <Header
         onOpenTestRide={handleOpenTestRide}

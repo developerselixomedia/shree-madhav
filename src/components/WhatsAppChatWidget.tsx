@@ -61,8 +61,8 @@ export function WhatsAppChatWidget() {
             : "opacity-0 scale-95 translate-y-4 pointer-events-none"
         }`}
       >
-        {/* Green WhatsApp Header */}
-        <div className="bg-[#25D366] text-white px-5 py-4 flex items-center gap-3.5 relative select-none">
+        {/* Emerald WhatsApp Header */}
+        <div className="bg-[#059669] text-white px-5 py-4 flex items-center gap-3.5 relative select-none">
           {/* WhatsApp Logo */}
           <div className="w-11 h-11 shrink-0 flex items-center justify-center">
             <svg className="w-10 h-10 fill-white" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ export function WhatsAppChatWidget() {
         {/* Card Body */}
         <div className="p-4 sm:p-5 bg-white">
           {/* Incoming Chat Message Bubble */}
-          <div className="relative bg-[#f0f4f8] rounded-2xl rounded-tl-sm p-4 text-[13.5px] leading-relaxed text-[#1e293b] font-normal shadow-[inset_0_1px_2px_rgba(0,0,0,0.03)] border border-slate-200/50">
+          <div className="relative bg-[#FDFBF7] rounded-2xl rounded-tl-sm p-4 text-[13.5px] leading-relaxed text-[#1e293b] font-normal shadow-[inset_0_1px_2px_rgba(0,0,0,0.03)] border border-[#E6DAC7]">
             Our team usually responds within a few minutes to discuss test rides, ₹2,999 down payment festive schemes, and spot approvals.
           </div>
 
@@ -94,7 +94,7 @@ export function WhatsAppChatWidget() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-4 w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] transition-all duration-200 text-white font-bold text-[15px] py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2.5 shadow-[0_6px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_25px_rgba(37,211,102,0.5)] group"
+            className="mt-4 w-full bg-[#059669] hover:bg-[#047857] active:scale-[0.98] transition-all duration-200 text-white font-bold text-[15px] py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2.5 shadow-[0_6px_20px_rgba(5,150,105,0.4)] hover:shadow-[0_8px_25px_rgba(5,150,105,0.5)] group"
           >
             <svg
               className="w-5 h-5 fill-white transition-transform duration-200 group-hover:scale-110"
@@ -113,7 +113,7 @@ export function WhatsAppChatWidget() {
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
         aria-expanded={isOpen}
-        className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white/30 focus:outline-none cursor-pointer"
+        className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#059669] hover:bg-[#047857] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(5,150,105,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white/30 focus:outline-none cursor-pointer"
       >
         {isOpen ? (
           <X className="w-6 h-6 text-white stroke-[2.5] transition-transform duration-200 rotate-0 hover:rotate-90" />

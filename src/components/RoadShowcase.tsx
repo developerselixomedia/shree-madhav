@@ -29,12 +29,12 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
       id: 'scooty',
       titleLine1: 'RIDE',
       titleLine2: 'GREEN',
-      color: '#ea580c',
+      color: '#059669',
       label: 'E-Scooty Pro Series',
       badge: 'Zero Emission • 120 KM Range',
       sub: (
         <>
-          <strong className="text-[#14532d] font-bold">E-Scooty Pro</strong> — Zero petrol queues, whisper-quiet motor, and up to 120 km range on a single charge. Down payment starts from just ₹2,999 with instant RTO spot approval in Prayagraj.
+          <strong className="text-[#059669] font-bold">E-Scooty Pro</strong> — Zero petrol queues, whisper-quiet motor, and up to 120 km range on a single charge. Down payment starts from just ₹2,999 with instant RTO spot approval in Prayagraj.
         </>
       ),
     },
@@ -42,12 +42,12 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
       id: 'rickshaw',
       titleLine1: 'GROW',
       titleLine2: 'DAILY',
-      color: '#15803d',
+      color: '#0A0A0A',
       label: 'Commercial E-Rickshaw',
       badge: 'Rozgaar Series • Earn ₹45k+/mo',
       sub: (
         <>
-          <strong className="text-[#ea580c] font-bold">E-Rickshaw Rozgaar</strong> — Power your daily income with unmatched electric efficiency. 4+1 passenger capacity, low running cost under ₹45 per day, and fast bank tie-up financing.
+          <strong className="text-[#0A0A0A] font-bold">E-Rickshaw Rozgaar</strong> — Power your daily income with unmatched electric efficiency. 4+1 passenger capacity, low running cost under ₹45 per day, and fast bank tie-up financing.
         </>
       ),
     },
@@ -171,12 +171,12 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
         {/* ================= LEFT COLUMN: THE HIGHWAY ROAD (42% Width) ================= */}
         <div className="relative w-full md:w-[42%] h-[420px] sm:h-[480px] md:h-auto overflow-hidden bg-gradient-to-b from-[#FBF7EE] to-[#E6DAC7] border-b-2 md:border-b-0 md:border-r-2 border-[#E6DAC7] flex items-center justify-center">
           
-          {/* Vertical Saffron Highway Strip */}
-          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[76%] sm:w-[72%] md:w-[74%] lg:w-[70%] bg-gradient-to-r from-[#c2410c] via-[#ea580c] to-[#c2410c] shadow-[inset_0_0_35px_rgba(0,0,0,0.3)]">
+          {/* Vertical Authentic Highway Strip (Charcoal Asphalt) */}
+          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[76%] sm:w-[72%] md:w-[74%] lg:w-[70%] bg-gradient-to-r from-[#18181b] via-[#27272a] to-[#18181b] shadow-[inset_0_0_35px_rgba(0,0,0,0.5)]">
             
             {/* Road Curbs (Textured side lines) */}
-            <div className="absolute left-0 top-0 bottom-0 w-3 bg-white/40 border-r border-black/25" />
-            <div className="absolute right-0 top-0 bottom-0 w-3 bg-white/40 border-l border-black/25" />
+            <div className="absolute left-0 top-0 bottom-0 w-3 bg-white/20 border-r border-black/40" />
+            <div className="absolute right-0 top-0 bottom-0 w-3 bg-white/20 border-l border-black/40" />
 
             {/* Infinite Moving White Highway Dashes */}
             <div
@@ -210,9 +210,9 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
           </div>
 
           {/* Bottom Left Mode Capsule */}
-          <div className="absolute bottom-5 left-5 z-30 bg-[#08120B]/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#eab308]/40 text-white text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-xl">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#ea580c] animate-ping" />
-            <span className="text-[#fef08a]">{currentSlide.label}</span>
+          <div className="absolute bottom-5 left-5 z-30 bg-[#0A0A0A]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#059669]/40 text-white text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-xl">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#059669] animate-ping" />
+            <span className="text-[#10b981]">{currentSlide.label}</span>
             <span className="text-white/50">•</span>
             <span className="text-white/80">Expressway Live</span>
           </div>
@@ -223,15 +223,15 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
           
           {/* Subtle Background Watermark */}
           <div className="absolute -top-8 right-6 pointer-events-none select-none z-0 opacity-[0.035]">
-            <span className="font-['Oswald'] font-black text-8xl md:text-9xl lg:text-[180px] text-[#14532d] uppercase italic">
+            <span className="font-['Oswald'] font-black text-8xl md:text-9xl lg:text-[180px] text-[#0A0A0A] uppercase italic">
               MADHAV
             </span>
           </div>
 
           {/* Top Brand Tag */}
           <div className="relative z-10 flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-mono font-black uppercase tracking-wider text-[#ea580c] shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#eab308]" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-mono font-black uppercase tracking-wider text-[#059669] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#059669]" />
               <span>SHREE MADHAV EV &bull; {currentSlide.label}</span>
             </span>
           </div>
@@ -283,14 +283,14 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
               <div className="flex flex-wrap items-center gap-3.5 mt-6">
                 <button
                   onClick={() => onOpenTestRide?.(currentSlide.id)}
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-[#ea580c] to-[#15803d] hover:brightness-110 text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-orange-900/15 hover:scale-105 transition-all cursor-pointer flex items-center gap-2"
+                  className="px-6 py-3 rounded-full bg-[#059669] hover:bg-[#047857] text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-emerald-900/15 hover:scale-105 transition-all cursor-pointer flex items-center gap-2"
                 >
                   <span>Book Free Test Ride</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-bold text-[#14532d]">
-                  <Zap className="w-3.5 h-3.5 text-[#ea580c]" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-bold text-[#0A0A0A]">
+                  <Zap className="w-3.5 h-3.5 text-[#059669]" />
                   <span>{currentSlide.badge}</span>
                 </div>
               </div>
@@ -306,8 +306,8 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
                 onClick={() => handleManualSelect(0)}
                 className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2 ${
                   currentStep === 0
-                    ? 'bg-[#ea580c] text-white shadow-md scale-105'
-                    : 'bg-[#FBF7EE] text-stone-600 hover:text-[#ea580c] border border-[#E6DAC7]'
+                    ? 'bg-[#059669] text-white shadow-md scale-105'
+                    : 'bg-[#FBF7EE] text-stone-600 hover:text-[#059669] border border-[#E6DAC7]'
                 }`}
               >
                 <span className="w-2 h-2 rounded-full bg-white/80" />
@@ -318,8 +318,8 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
                 onClick={() => handleManualSelect(1)}
                 className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2 ${
                   currentStep === 1
-                    ? 'bg-[#15803d] text-white shadow-md scale-105'
-                    : 'bg-[#FBF7EE] text-stone-600 hover:text-[#15803d] border border-[#E6DAC7]'
+                    ? 'bg-[#0A0A0A] text-white shadow-md scale-105'
+                    : 'bg-[#FBF7EE] text-stone-600 hover:text-[#0A0A0A] border border-[#E6DAC7]'
                 }`}
               >
                 <span className="w-2 h-2 rounded-full bg-white/80" />
@@ -330,7 +330,7 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
             {/* Replay Button */}
             <button
               onClick={() => handleManualSelect(0)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#15803d] hover:bg-[#ea580c] text-white text-xs font-bold transition-all cursor-pointer shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0A0A0A] hover:bg-[#059669] text-white text-xs font-bold transition-all cursor-pointer shadow-sm hover:scale-105"
               aria-label="Replay Highway Animation"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -353,12 +353,12 @@ const ScootyTopSvg = () => (
   <svg viewBox="0 0 300 620" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_16px_30px_rgba(0,0,0,0.38)]">
     <defs>
       <linearGradient id="scootyRed" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#ea580c" />
-        <stop offset="100%" stopColor="#9a3412" />
+        <stop offset="0%" stopColor="#059669" />
+        <stop offset="100%" stopColor="#047857" />
       </linearGradient>
       <linearGradient id="scootyDark" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#c2410c" />
-        <stop offset="100%" stopColor="#7c2d12" />
+        <stop offset="0%" stopColor="#064e3b" />
+        <stop offset="100%" stopColor="#022c22" />
       </linearGradient>
       <linearGradient id="scootySeat" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stopColor="#3a3a3a" />
@@ -402,7 +402,7 @@ const ScootyTopSvg = () => (
     <path d="M118 115 Q112 135 110 165 L108 200 Q108 220 115 235 L185 235 Q192 220 192 200 L190 165 Q188 135 182 115 Z" fill="url(#scootyRed)" />
     <path d="M150 120 L138 180 L150 190 L162 180 Z" fill="url(#scootyDark)" opacity="0.6" />
     {/* EV Green Badge */}
-    <rect x="138" y="205" width="24" height="11" rx="3" fill="#15803d" />
+    <rect x="138" y="205" width="24" height="11" rx="3" fill="#059669" />
     <text x="150" y="214" textAnchor="middle" fill="white" fontFamily="sans-serif" fontSize="7" fontWeight="700">EV</text>
     {/* Footboard */}
     <path d="M108 235 Q100 238 96 245 L96 280 Q98 290 108 292 L192 292 Q202 290 204 280 L204 245 Q200 238 192 235 Z" fill="#2a2a2a" />
@@ -413,8 +413,8 @@ const ScootyTopSvg = () => (
     {/* Rear body */}
     <path d="M105 435 Q100 440 98 450 L96 470 Q96 485 100 495 L104 505 Q110 520 125 528 L150 535 L175 528 Q190 520 196 505 L200 495 Q204 485 204 470 L202 450 Q200 440 195 435 Z" fill="url(#scootyRed)" />
     {/* Tail light */}
-    <rect x="115" y="525" width="70" height="6" rx="3" fill="#ea580c" />
-    <rect x="125" y="526" width="50" height="4" rx="2" fill="#facc15" opacity="0.8" />
+    <rect x="115" y="525" width="70" height="6" rx="3" fill="#059669" />
+    <rect x="125" y="526" width="50" height="4" rx="2" fill="#10b981" opacity="0.8" />
     {/* Rear tire */}
     <ellipse cx="150" cy="575" rx="22" ry="26" fill="url(#scootyTire)" />
     <ellipse cx="150" cy="575" rx="18" ry="20" fill="#2a2a2a" />
@@ -477,8 +477,8 @@ const RickshawTopSvg = () => (
 
     {/* Rear Body */}
     <path d="M62 530 L62 548 Q62 558 72 560 L168 560 Q178 558 178 548 L178 530" fill="url(#rickshawYellow)" />
-    <circle cx="78" cy="552" r="6" fill="#ea580c" />
-    <circle cx="162" cy="552" r="6" fill="#ea580c" />
+    <circle cx="78" cy="552" r="6" fill="#059669" />
+    <circle cx="162" cy="552" r="6" fill="#059669" />
 
     {/* Rear Axle + Wheels */}
     <rect x="25" y="555" width="190" height="5" rx="2.5" fill="#555" />

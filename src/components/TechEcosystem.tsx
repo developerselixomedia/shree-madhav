@@ -50,22 +50,22 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
         
         {/* Decorative Graphic Bars */}
         <div 
-          className="absolute left-0 top-16 sm:top-24 w-4 sm:w-6 h-32 sm:h-44 bg-[#ea580c] z-0 rounded-r-md pointer-events-none" 
+          className="absolute left-0 top-16 sm:top-24 w-4 sm:w-6 h-32 sm:h-44 bg-[#059669] z-0 rounded-r-md pointer-events-none" 
         />
 
         <div className="absolute left-4 sm:left-8 -bottom-3 sm:-bottom-4 w-72 sm:w-96 h-40 z-0 pointer-events-none">
           <div 
-            className="absolute left-0 bottom-0 w-48 sm:w-60 h-28 sm:h-32 bg-[#ea580c]"
+            className="absolute left-0 bottom-0 w-48 sm:w-60 h-28 sm:h-32 bg-[#059669]"
             style={{ clipPath: 'polygon(0 100%, 100% 100%, 75% 0, 0 0)' }}
           />
           <div 
-            className="absolute left-28 sm:left-36 bottom-0 w-40 sm:w-48 h-24 sm:h-28 bg-[#eab308]"
+            className="absolute left-28 sm:left-36 bottom-0 w-40 sm:w-48 h-24 sm:h-28 bg-slate-300"
             style={{ clipPath: 'polygon(0 100%, 100% 100%, 70% 0, 0 0)' }}
           />
         </div>
 
         <div 
-          className="absolute right-0 -bottom-2 w-72 sm:w-96 lg:w-[480px] h-60 sm:h-72 bg-[#eab308]/20 z-0 pointer-events-none"
+          className="absolute right-0 -bottom-2 w-72 sm:w-96 lg:w-[480px] h-60 sm:h-72 bg-slate-200/40 z-0 pointer-events-none"
           style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}
         />
 
@@ -78,13 +78,13 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
         >
           {/* Top Bar Header with Shree Madhav Official Branding */}
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-10">
-            {/* Left: Saffron Circle Badge + Title */}
+            {/* Left: Emerald Circle Badge + Title */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ea580c] flex items-center justify-center text-white font-black text-sm shadow-md flex-shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#059669] flex items-center justify-center text-white font-black text-sm shadow-md flex-shrink-0">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-base sm:text-lg lg:text-xl font-black tracking-wide uppercase text-[#14532d]">
+                <h2 className="text-base sm:text-lg lg:text-xl font-black tracking-wide uppercase text-[#0A0A0A]">
                   E-Rickshaw &amp; E-Scooty Showroom &bull; Batteries &bull; Service
                 </h2>
                 <span className="text-[11px] sm:text-xs font-mono font-bold text-stone-500 uppercase tracking-wider block">
@@ -100,8 +100,8 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                 alt="Shree Madhav Enterprises"
                 className="h-6 w-auto object-contain"
               />
-              <span className="text-xs sm:text-sm font-black italic tracking-wider text-[#14532d]">
-                SHREE MADHAV <span className="text-[#ea580c]">EV</span>
+              <span className="text-xs sm:text-sm font-black italic tracking-wider text-[#0A0A0A]">
+                SHREE MADHAV <span className="text-[#059669]">EV</span>
               </span>
             </div>
           </div>
@@ -111,13 +111,13 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
             
             {/* Left Article */}
             <div className="lg:col-span-5 flex flex-col justify-start pt-2 pb-6 max-w-lg">
-              <span className="bg-[#ea580c] text-white font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block w-max mb-3.5 shadow-xs">
+              <span className="bg-[#0A0A0A] text-white font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block w-max mb-3.5 shadow-xs">
                 AUTHORIZED SHOWROOM
               </span>
 
-              <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-black uppercase tracking-tight text-[#14532d] leading-tight mb-4">
+              <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-black uppercase tracking-tight text-[#0A0A0A] leading-tight mb-4">
                 Pure Electric Freedom, <br />
-                <span className="text-[#ea580c]">Maximum Daily Savings.</span>
+                <span className="text-[#059669]">Maximum Daily Savings.</span>
               </h3>
 
               <p className="text-sm sm:text-base text-stone-600 leading-[1.8] font-normal mb-6 max-w-md">
@@ -127,7 +127,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
               <div className="flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => onOpenTestRide?.()}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-orange-500/25 cursor-pointer group hover:scale-105"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-lg shadow-emerald-600/25 cursor-pointer group hover:scale-105"
                 >
                   <span>BOOK A FREE TEST RIDE</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -135,9 +135,9 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
 
                 <a
                   href="#dealership"
-                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full border-2 border-[#15803d] hover:bg-[#15803d] hover:text-white text-[#15803d] font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full border-2 border-stone-800 hover:bg-stone-900 hover:text-white text-stone-900 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-[#ea580c]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#059669]" />
                   <span>Visit Jhalwa Hub</span>
                 </a>
               </div>
@@ -149,7 +149,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                 <a
                   key={card.id}
                   href={card.action}
-                  className="bg-[#FDFBF7] text-[#16171b] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 border border-[#E6DAC7] hover:border-[#ea580c]/60 group block cursor-pointer"
+                  className="bg-[#FDFBF7] text-[#16171b] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 border border-[#E6DAC7] hover:border-[#059669]/60 group block cursor-pointer"
                 >
                   {/* Top Image Flush with Card Edges */}
                   <div className="relative w-full h-44 sm:h-52 overflow-hidden bg-stone-100 flex-shrink-0">
@@ -158,7 +158,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                       alt={card.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 left-3 bg-[#08120B]/85 backdrop-blur-md text-[#fef08a] text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#eab308]/40 shadow-xs">
+                    <div className="absolute top-3 left-3 bg-[#08120B]/90 backdrop-blur-md text-[#10b981] text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#059669]/40 shadow-xs">
                       {card.badge}
                     </div>
                   </div>
@@ -166,10 +166,10 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                   {/* Card Content (Clean & Spacious) */}
                   <div className="p-5 flex flex-col justify-between flex-1">
                     <div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ea580c] block mb-1">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#059669] block mb-1">
                         {card.category}
                       </span>
-                      <h4 className="text-sm sm:text-[15px] font-bold text-[#14532d] leading-snug group-hover:text-[#ea580c] transition-colors">
+                      <h4 className="text-sm sm:text-[15px] font-bold text-[#0A0A0A] leading-snug group-hover:text-[#059669] transition-colors">
                         {card.title}
                       </h4>
                       <p className="text-xs text-stone-600 mt-2 leading-[1.7] font-normal">
@@ -177,7 +177,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                       </p>
                     </div>
 
-                    <div className="pt-4 flex items-center gap-1.5 text-xs font-bold text-[#15803d] group-hover:text-[#ea580c] transition-colors">
+                    <div className="pt-4 flex items-center gap-1.5 text-xs font-bold text-[#059669] group-hover:text-[#047857] transition-colors">
                       <span>Explore</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -192,7 +192,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
           <div className="relative z-10 flex items-center justify-end pt-6 pb-1">
             <a
               href="#vehicles"
-              className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#15803d] hover:text-[#ea580c] transition-colors cursor-pointer flex items-center gap-1.5"
+              className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#0A0A0A] hover:text-[#059669] transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <span>VIEW FULL EV FLEET</span>
               <ArrowRight className="w-4 h-4" />

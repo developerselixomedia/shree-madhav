@@ -124,17 +124,17 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
-      {/* Dynamic Background Accents: Saffron, Amber, Forest Emerald Bloom */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ea580c]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -left-20 w-80 h-80 bg-[#15803d]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Dynamic Background Accents: Emerald Green & Subtle Dark Grey */}
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#059669]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 -left-20 w-80 h-80 bg-black/5 rounded-full blur-3xl pointer-events-none" />
       
       {/* Bottom-Left Dynamic Warm Brand Graphics */}
       <div 
-        className="absolute left-0 bottom-0 w-72 sm:w-96 h-36 sm:h-48 bg-[#eab308]/20 pointer-events-none z-0"
+        className="absolute left-0 bottom-0 w-72 sm:w-96 h-36 sm:h-48 bg-slate-200/50 pointer-events-none z-0"
         style={{ clipPath: 'polygon(0 45%, 100% 100%, 0 100%)' }}
       />
       <div 
-        className="absolute left-0 bottom-0 w-84 sm:w-[420px] h-28 sm:h-36 bg-[#ea580c]/15 pointer-events-none z-0"
+        className="absolute left-0 bottom-0 w-84 sm:w-[420px] h-28 sm:h-36 bg-[#059669]/10 pointer-events-none z-0"
         style={{ clipPath: 'polygon(0 68%, 80% 100%, 0 100%)' }}
       />
 
@@ -143,23 +143,23 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
         <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 relative">
           {/* Faint Background Watermark */}
           <div className="absolute -top-6 sm:-top-10 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 overflow-hidden w-full">
-            <span className="text-5xl sm:text-7xl lg:text-8xl font-black italic tracking-tighter text-[#14532d]/[0.05] uppercase whitespace-nowrap">
+            <span className="text-5xl sm:text-7xl lg:text-8xl font-black italic tracking-tighter text-black/[0.04] uppercase whitespace-nowrap">
               SHREE MADHAV
             </span>
           </div>
 
           {/* Kicker Badge */}
           <div className="inline-flex items-center gap-2 mb-3 relative z-10">
-            <span className="font-black italic text-[#15803d] text-xs sm:text-sm tracking-tight uppercase">
+            <span className="font-black italic text-[#059669] text-xs sm:text-sm tracking-tight uppercase">
               SHREE MADHAV
             </span>
-            <span className="bg-[#ea580c] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[11px] sm:text-xs tracking-wider uppercase transform -skew-x-12 shadow-xs inline-block">
+            <span className="bg-[#0A0A0A] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[11px] sm:text-xs tracking-wider uppercase transform -skew-x-12 shadow-xs inline-block">
               LINEUP &bull; PRAYAGRAJ
             </span>
           </div>
           
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tight text-[#15803d] leading-tight relative z-10">
-            DISCOVER YOUR <span className="text-[#ea580c]">ELECTRIC RIDE</span>
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tight text-[#0A0A0A] leading-tight relative z-10">
+            DISCOVER YOUR <span className="text-[#059669]">ELECTRIC RIDE</span>
           </h3>
 
           <p className="mt-3 text-xs sm:text-sm lg:text-base text-stone-600 leading-relaxed max-w-xl mx-auto font-normal relative z-10">
@@ -179,8 +179,8 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                 onClick={() => setFleetCategory(cat.id as any)}
                 className={`px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                   fleetCategory === cat.id
-                    ? 'bg-[#ea580c] text-white shadow-md border border-[#ea580c] scale-105'
-                    : 'bg-[#FDFBF7] text-[#15803d] hover:text-[#ea580c] hover:bg-[#FBF7EE] border border-[#E6DAC7] shadow-xs'
+                    ? 'bg-[#0A0A0A] text-white shadow-md border border-[#0A0A0A] scale-105'
+                    : 'bg-[#FDFBF7] text-stone-700 hover:text-[#059669] hover:bg-[#FBF7EE] border border-[#E6DAC7] shadow-xs'
                 }`}
               >
                 {cat.label}
@@ -245,9 +245,9 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                   transition={springConfig}
                 >
                   
-                  {/* ================= FRONT FACE: CREAM CARD WITH SAFFRON & FOREST GREEN ACCENTS ================= */}
+                  {/* ================= FRONT FACE: CREAM CARD WITH EMERALD GREEN & BLACK ACCENTS ================= */}
                   <div
-                    className="absolute inset-0 overflow-hidden rounded-[32px] sm:rounded-[36px] border-2 border-[#E6DAC7] shadow-[0_20px_50px_rgba(234,88,12,0.14)] bg-[#FDFBF7] flex flex-col justify-between hover:border-[#ea580c]/50 transition-all duration-300"
+                    className="absolute inset-0 overflow-hidden rounded-[32px] sm:rounded-[36px] border-2 border-[#E6DAC7] shadow-[0_20px_50px_rgba(5,150,105,0.12)] bg-[#FDFBF7] flex flex-col justify-between hover:border-[#059669]/50 transition-all duration-300"
                     style={{
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
@@ -265,23 +265,23 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                       {/* Subtle Top & Bottom Gradient for Badging Contrast */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/35 pointer-events-none" />
 
-                      {/* Top Badges (Saffron Down Payment & Forest Green / Gold Top Speed / Warranty) */}
+                      {/* Top Badges (Emerald Green Down Payment & Black Warranty) */}
                       <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ea580c] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider shadow-md border border-[#fef08a]/40">
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#059669] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider shadow-md border border-[#10b981]/40">
                           {vehicle.category === 'battery' ? (
                             <>
-                              <RotateCcw className="w-3.5 h-3.5 text-[#fef08a]" />
+                              <RotateCcw className="w-3.5 h-3.5 text-[#10b981]" />
                               <span>Trade-in: Up to ₹5,000 Off*</span>
                             </>
                           ) : (
                             <>
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#fef08a] animate-pulse" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                               <span>DP ₹{vehicle.downPayment.toLocaleString('en-IN')}*</span>
                             </>
                           )}
                         </div>
                         
-                        <div className="px-3 py-1 rounded-full bg-[#15803d] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider shadow-md border border-[#eab308]/40">
+                        <div className="px-3 py-1 rounded-full bg-[#0A0A0A] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider shadow-md border border-white/20">
                           {vehicle.category === 'battery'
                             ? vehicle.warranty
                             : vehicle.category === 'rickshaw'
@@ -295,14 +295,14 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                       </div>
                     </div>
 
-                    {/* Bottom Content Area (Cream Luxury Styling, Clean Typography) */}
+                    {/* Bottom Content Area (Prime Cream Luxury Styling, Clean Typography) */}
                     <div className="p-5 sm:p-7 bg-[#FDFBF7] border-t border-[#E6DAC7] flex flex-col justify-between flex-1 text-left">
                       <div>
-                        <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-[#ea580c] block mb-1">
+                        <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-[#059669] block mb-1">
                           Shree Madhav &bull; {vehicle.category === 'scooty' ? 'Electric Scooty' : vehicle.category === 'rickshaw' ? 'Commercial E-Rickshaw' : vehicle.subCategory === 'lead-acid' ? 'Tubular Lead-Acid Battery' : 'Lithium-Ion LFP Battery'}
                         </span>
 
-                        <h4 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-[#14532d] leading-tight">
+                        <h4 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-[#0A0A0A] leading-tight">
                           {vehicle.name}
                         </h4>
                         
@@ -313,21 +313,21 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
 
                       {/* Bottom Range & Flip Prompt */}
                       <div className="w-full flex items-center justify-between pt-3.5 border-t border-[#E6DAC7] mt-2">
-                        <div className="text-xs sm:text-sm font-black text-[#15803d] flex items-center gap-1.5">
+                        <div className="text-xs sm:text-sm font-black text-[#059669] flex items-center gap-1.5">
                           {vehicle.category === 'battery' ? (
                             <>
-                              <BatteryCharging className="w-4 h-4 text-[#ea580c]" />
+                              <BatteryCharging className="w-4 h-4 text-[#059669]" />
                               <span>{vehicle.subCategory === 'lead-acid' ? 'Heavy Deep Cycle SMF' : '3000+ LFP Deep Cycles'}</span>
                             </>
                           ) : (
                             <>
-                              <Zap className="w-4 h-4 text-[#ea580c] fill-[#ea580c]" />
+                              <Zap className="w-4 h-4 text-[#059669] fill-[#059669]" />
                               <span>{vehicle.rangeKm}</span>
                             </>
                           )}
                         </div>
 
-                        <div className="text-xs sm:text-sm font-bold text-[#ea580c] flex items-center gap-1.5 animate-pulse">
+                        <div className="text-xs sm:text-sm font-bold text-[#059669] flex items-center gap-1.5 animate-pulse">
                           <span>Hover / Tap to flip specs</span>
                           <RotateCcw className="w-3.5 h-3.5" />
                         </div>
@@ -335,9 +335,9 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                     </div>
                   </div>
 
-                  {/* ================= BACK FACE: FOREST EMERALD DEPTH CARD WITH GOLD SPECULAR RIMS ================= */}
+                  {/* ================= BACK FACE: LUXURY BLACK DEPTH CARD WITH EMERALD SPECULAR RIMS ================= */}
                   <div
-                    className="absolute inset-0 overflow-hidden rounded-[32px] sm:rounded-[36px] border-2 border-[#eab308]/60 shadow-[0_25px_60px_rgba(21,128,61,0.3)] bg-gradient-to-br from-[#1b3522] via-[#0d2013] to-[#051109] text-white p-4 sm:p-5 lg:p-6 flex flex-col justify-between text-left"
+                    className="absolute inset-0 overflow-hidden rounded-[32px] sm:rounded-[36px] border-2 border-[#059669]/60 shadow-[0_25px_60px_rgba(0,0,0,0.4)] bg-gradient-to-br from-[#111827] via-[#0A0A0A] to-[#000000] text-white p-4 sm:p-5 lg:p-6 flex flex-col justify-between text-left"
                     style={{
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
@@ -350,10 +350,10 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                       {/* Top Header */}
                       <div>
                         <div className="flex items-center justify-between gap-2 mb-1">
-                          <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#ea580c] whitespace-nowrap">
+                          <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#059669] whitespace-nowrap">
                             Shree Madhav EV &bull; Prayagraj
                           </span>
-                          <span className="text-[10px] sm:text-xs font-mono text-[#fef08a] font-bold uppercase tracking-wider bg-[#15803d]/40 px-2 py-0.5 rounded-full border border-[#eab308]/40 whitespace-nowrap">
+                          <span className="text-[10px] sm:text-xs font-mono text-[#10b981] font-bold uppercase tracking-wider bg-black/60 px-2 py-0.5 rounded-full border border-[#059669]/40 whitespace-nowrap">
                             {vehicle.category === 'battery' ? 'Certified Exchange' : '3-Year Warranty'}
                           </span>
                         </div>
@@ -376,21 +376,21 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                           </span>
                         </div>
                         <div className="text-right">
-                          <span className="text-[9px] sm:text-[10px] uppercase font-bold text-[#fef08a] tracking-wider block">
+                          <span className="text-[9px] sm:text-[10px] uppercase font-bold text-emerald-400 tracking-wider block">
                             {vehicle.category === 'battery' ? 'Old Battery Trade-In' : 'Easy Down Payment'}
                           </span>
-                          <span className="text-sm sm:text-base font-black text-[#fef08a] tracking-tight">
+                          <span className="text-sm sm:text-base font-black text-emerald-400 tracking-tight">
                             {vehicle.category === 'battery' ? 'Up to ₹5,000 Off*' : `From ₹${vehicle.downPayment.toLocaleString('en-IN')}*`}
                           </span>
                           {vehicle.monthlyEmi > 0 && (
-                            <span className="text-[10px] sm:text-[11px] font-mono text-[#fef08a]/90 font-bold block">
+                            <span className="text-[10px] sm:text-[11px] font-mono text-emerald-300 font-bold block">
                               EMI: ₹{vehicle.monthlyEmi}/mo*
                             </span>
                           )}
                         </div>
                       </div>
 
-                      {/* Category-Relevant 4 Key Specifications Grid with Golden-Yellow Metrics */}
+                      {/* Category-Relevant 4 Key Specifications Grid with Emerald Metrics */}
                       <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 py-0.5 text-left">
                         {vehicle.category === 'battery' ? (
                           <>
@@ -398,7 +398,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                               <span className="text-[9px] sm:text-[10px] uppercase font-black tracking-wider text-[#e6dac7]/70 block mb-0.5">
                                 Capacity &amp; Voltage
                               </span>
-                              <span className="text-xs sm:text-sm font-black text-[#fef08a] tracking-tight">
+                              <span className="text-xs sm:text-sm font-black text-emerald-400 tracking-tight">
                                 {vehicle.id === 'ultra-lfp-master-pack' ? '72V 45Ah (3.24 kWh)' : vehicle.id === 'lithium-smart-pack' ? '60V / 72V 36Ah' : '48V/60V 28-32Ah'}
                               </span>
                             </div>
@@ -433,7 +433,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                               <span className="text-[9px] sm:text-[10px] uppercase font-black tracking-wider text-[#e6dac7]/70 block mb-0.5">
                                 Daily Route Range
                               </span>
-                              <span className="text-xs sm:text-sm font-black text-[#fef08a] tracking-tight">
+                              <span className="text-xs sm:text-sm font-black text-emerald-400 tracking-tight">
                                 {vehicle.rangeKm}
                               </span>
                             </div>
@@ -468,7 +468,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                               <span className="text-[9px] sm:text-[10px] uppercase font-black tracking-wider text-[#e6dac7]/70 block mb-0.5">
                                 Riding Range
                               </span>
-                              <span className="text-xs sm:text-sm font-black text-[#fef08a] tracking-tight">
+                              <span className="text-xs sm:text-sm font-black text-emerald-400 tracking-tight">
                                 {vehicle.rangeKm}
                               </span>
                             </div>
@@ -504,7 +504,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                       <div className="space-y-1 py-1.5 border-t border-white/10 text-[11px] sm:text-xs text-stone-300">
                         {vehicle.highlights.slice(0, 3).map((item, i) => (
                           <div key={i} className="flex items-start gap-1.5 leading-snug">
-                            <span className="text-[#eab308] font-black text-xs leading-none mt-0.5 shrink-0">&bull;</span>
+                            <span className="text-[#059669] font-black text-xs leading-none mt-0.5 shrink-0">&bull;</span>
                             <span className="line-clamp-1">{item}</span>
                           </div>
                         ))}
@@ -513,7 +513,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                       {/* Compatibility Row for Batteries, Color Swatches for Vehicles */}
                       {vehicle.category === 'battery' ? (
                         <div className="flex items-center justify-between pt-1 border-t border-white/10 text-[10px] sm:text-[11px]">
-                          <span className="font-bold text-[#fef08a] uppercase tracking-wider">
+                          <span className="font-bold text-emerald-400 uppercase tracking-wider">
                             COMPATIBILITY:
                           </span>
                           <span className="font-medium text-stone-200">
@@ -553,7 +553,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                             onOpenTestRide(vehicle.id);
                           }
                         }}
-                        className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
+                        className="w-full py-2.5 px-3 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
                       >
                         {vehicle.category === 'battery' ? (
                           <>
@@ -579,10 +579,10 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                           e.stopPropagation();
                           onSelectVehicle(vehicle);
                         }}
-                        className="w-full py-2.5 px-3 rounded-xl bg-[#FDFBF7] hover:bg-[#FBF7EE] text-[#14532d] font-black text-xs uppercase tracking-wider transition-all shadow-sm border border-[#eab308]/40 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
+                        className="w-full py-2.5 px-3 rounded-xl bg-[#FDFBF7] hover:bg-[#FBF7EE] text-stone-900 font-black text-xs uppercase tracking-wider transition-all shadow-sm border border-stone-300 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
                       >
                         <span>Full Specs</span>
-                        <Eye className="w-3.5 h-3.5 text-[#14532d]" />
+                        <Eye className="w-3.5 h-3.5 text-stone-700" />
                       </button>
                     </div>
 
@@ -594,13 +594,13 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
           })}
         </div>
 
-        {/* Carousel Controls: Saffron Hover & Warm Cream Palette */}
+        {/* Carousel Controls: Emerald Green Hover & Warm Cream Palette */}
         <div className="flex items-center justify-center gap-6 mt-8 sm:mt-12">
           {/* Previous Arrow */}
           <button
             type="button"
             onClick={() => handleNavigate(-1)}
-            className="w-12 h-12 rounded-full border border-[#E6DAC7] bg-[#FDFBF7] hover:bg-[#ea580c] hover:border-[#ea580c] text-[#15803d] hover:text-white flex items-center justify-center transition-all shadow-md cursor-pointer hover:scale-105 active:scale-95"
+            className="w-12 h-12 rounded-full border border-[#E6DAC7] bg-[#FDFBF7] hover:bg-[#059669] hover:border-[#059669] text-stone-900 hover:text-white flex items-center justify-center transition-all shadow-md cursor-pointer hover:scale-105 active:scale-95"
             aria-label="Previous Vehicle"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -618,8 +618,8 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
                 }}
                 className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   i === activeIndex 
-                    ? 'w-8 bg-[#ea580c]' 
-                    : 'w-2.5 bg-[#E6DAC7] hover:bg-[#ea580c]/50'
+                    ? 'w-8 bg-[#059669]' 
+                    : 'w-2.5 bg-[#E6DAC7] hover:bg-[#059669]/50'
                 }`}
                 aria-label={`Go to ${v.name}`}
               />
@@ -630,7 +630,7 @@ export const VehicleExplorer: React.FC<VehicleExplorerProps> = ({
           <button
             type="button"
             onClick={() => handleNavigate(1)}
-            className="w-12 h-12 rounded-full border border-[#E6DAC7] bg-[#FDFBF7] hover:bg-[#ea580c] hover:border-[#ea580c] text-[#15803d] hover:text-white flex items-center justify-center transition-all shadow-md cursor-pointer hover:scale-105 active:scale-95"
+            className="w-12 h-12 rounded-full border border-[#E6DAC7] bg-[#FDFBF7] hover:bg-[#059669] hover:border-[#059669] text-stone-900 hover:text-white flex items-center justify-center transition-all shadow-md cursor-pointer hover:scale-105 active:scale-95"
             aria-label="Next Vehicle"
           >
             <ChevronRight className="w-6 h-6" />

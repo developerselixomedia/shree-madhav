@@ -14,19 +14,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
   };
 
   return (
-    <footer className="w-full bg-[#08120B] text-stone-300 border-t-4 border-[#ea580c] pt-14 sm:pt-16 pb-24 sm:pb-16 font-sans">
+    <footer className="w-full bg-[#0A0A0A] text-stone-300 border-t-4 border-[#059669] pt-14 sm:pt-16 pb-24 sm:pb-16 font-sans">
       <div className="w-full max-w-[1560px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Top Footer Banner: Clean Cream Surface with Refined Warm Borders */}
-        <div className="bg-[#FDFBF7] text-[#1E291F] p-6 sm:p-8 lg:p-10 rounded-2xl border-2 border-[#E6DAC7] shadow-2xl mb-14 sm:mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div className="bg-[#FDFBF7] text-[#0A0A0A] p-6 sm:p-8 lg:p-10 rounded-2xl border-2 border-[#E6DAC7] shadow-2xl mb-14 sm:mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div className="max-w-3xl">
-            <span className="text-xs font-black uppercase tracking-wider text-[#ea580c]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#059669]">
               Ready to Ride The Future?
             </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#15803d] uppercase tracking-tight mt-1">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#0A0A0A] uppercase tracking-tight mt-1">
               Visit Shree Madhav Enterprises Showroom or Book Doorstep Test Ride
             </h3>
-            <p className="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#64748b] mt-1.5 leading-relaxed">
               Take home any EV Scooty with down payments starting at just ₹2,999. Fast spot financing with minimum paperwork at our Jhalwa showroom.
             </p>
           </div>
@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full lg:w-auto flex-shrink-0">
             <button
               onClick={onOpenTestRide}
-              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-orange-900/20 cursor-pointer flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="px-6 py-3.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-900/20 cursor-pointer flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <Calendar className="w-4 h-4" />
               <span>Book a Test Ride</span>
@@ -42,9 +42,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
 
             <a
               href={`tel:${SHOWROOM_INFO.phone}`}
-              className="px-6 py-3.5 rounded-xl border-2 border-[#15803d] text-[#15803d] hover:bg-[#15803d] hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="px-6 py-3.5 rounded-xl border-2 border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <Phone className="w-4 h-4 text-[#ea580c]" />
+              <Phone className="w-4 h-4 text-[#059669]" />
               <span>9211-50-9211</span>
             </a>
           </div>
@@ -65,12 +65,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
               </div>
               <div>
                 <div className="flex items-center text-lg sm:text-xl font-black tracking-wide leading-none">
-                  <span className="text-[#ea580c]">SHREE </span>
-                  <span className="text-[#4ade80] ml-1.5">MADHAV</span>
+                  <span className="text-white">SHREE </span>
+                  <span className="text-[#10b981] ml-1.5">MADHAV</span>
                 </div>
                 <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="h-[1.5px] w-2 bg-[#facc15]" />
-                  <span className="text-[10px] font-bold tracking-[0.25em] text-stone-200 uppercase font-mono">
+                  <span className="h-[1.5px] w-2 bg-[#059669]" />
+                  <span className="text-[10px] font-bold tracking-[0.25em] text-stone-300 uppercase font-mono">
                     ENTERPRISES &bull; PRAYAGRAJ
                   </span>
                 </div>
@@ -83,11 +83,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
 
             <div className="space-y-3.5 text-xs sm:text-sm text-stone-300 pt-2">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#ea580c] flex-shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-[#059669] flex-shrink-0 mt-1" />
                 <span className="leading-relaxed tracking-normal">{SHOWROOM_INFO.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#10b981] flex-shrink-0" />
                 <span className="leading-relaxed tracking-normal">
                   Customer Care:{' '}
                   <a href={`tel:${SHOWROOM_INFO.phone}`} className="text-white hover:underline font-bold ml-1 tracking-wide">
@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#fef08a] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span className="leading-relaxed tracking-normal">
                   Email: <span className="text-stone-100 ml-1">contact@shreemadhavev.com</span>
                 </span>
@@ -109,7 +109,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
                 href={SHOWROOM_INFO.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ea580c] text-stone-200 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#059669] text-stone-200 hover:text-white flex items-center justify-center transition-colors shadow-sm"
                 aria-label="Instagram @ev.shreemadhav"
               >
                 <Instagram className="w-4 h-4" />
@@ -118,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
                 href={SHOWROOM_INFO.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#ea580c] text-stone-200 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#059669] text-stone-200 hover:text-white flex items-center justify-center transition-colors shadow-sm"
                 aria-label="Facebook Shree Madhav Enterprises"
               >
                 <Facebook className="w-4 h-4" />
@@ -127,7 +127,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
                 href={`https://wa.me/${SHOWROOM_INFO.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#25D366] text-stone-200 hover:text-white flex items-center justify-center transition-colors shadow-sm"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#059669] text-stone-200 hover:text-white flex items-center justify-center transition-colors shadow-sm"
                 aria-label="WhatsApp Showroom"
               >
                 <Phone className="w-4 h-4" />
@@ -138,32 +138,32 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
           {/* Col 2: Electric Scooters Lineup (3 Cols) */}
           <div className="lg:col-span-3">
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-[0.12em] text-white mb-5 flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#ea580c] flex-shrink-0" />
+              <span className="w-2 h-2 bg-[#059669] flex-shrink-0" />
               <span>Electric Scooters</span>
             </h4>
             <ul className="space-y-4 text-xs sm:text-sm">
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Madhav Falcon Neo (₹2,999 DP)
                 </a>
               </li>
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Madhav Thunder Pro Max (120 KM)
                 </a>
               </li>
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Madhav Urban Glide DX
                 </a>
               </li>
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Low-Speed (No License Required)
                 </a>
               </li>
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   High-Speed Performance Models
                 </a>
               </li>
@@ -173,32 +173,32 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
           {/* Col 3: Commercial & Batteries (3 Cols) */}
           <div className="lg:col-span-3">
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-[0.12em] text-white mb-5 flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#ea580c] flex-shrink-0" />
+              <span className="w-2 h-2 bg-[#059669] flex-shrink-0" />
               <span>Commercial &amp; Power</span>
             </h4>
             <ul className="space-y-4 text-xs sm:text-sm">
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Passenger E-Rickshaw (4+1)
                 </a>
               </li>
               <li>
-                <a href="#vehicles" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#vehicles" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Cargo Delivery Loader (750 KG)
                 </a>
               </li>
               <li>
-                <a href="#battery-exchange" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#battery-exchange" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Lithium-Ion LFP Battery (3 Yr)
                 </a>
               </li>
               <li>
-                <a href="#battery-exchange" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#battery-exchange" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Tubular Lead-Acid Battery Packs
                 </a>
               </li>
               <li>
-                <a href="#battery-exchange" className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-relaxed tracking-normal">
+                <a href="#battery-exchange" className="text-stone-300 hover:text-[#10b981] transition-colors block leading-relaxed tracking-normal">
                   Battery Trade-In Exchange Scheme
                 </a>
               </li>
@@ -208,14 +208,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
           {/* Col 4: Customer Services & Portals (2 Cols) */}
           <div className="lg:col-span-2">
             <h4 className="text-xs sm:text-sm font-black uppercase tracking-[0.12em] text-white mb-5 flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#ea580c] flex-shrink-0" />
+              <span className="w-2 h-2 bg-[#059669] flex-shrink-0" />
               <span>Customer Services</span>
             </h4>
             <ul className="space-y-4 text-xs sm:text-sm">
               <li>
                 <button 
                   onClick={onOpenTestRide} 
-                  className="text-stone-300 hover:text-[#fef08a] transition-colors text-left cursor-pointer block leading-relaxed tracking-normal"
+                  className="text-stone-300 hover:text-[#10b981] transition-colors text-left cursor-pointer block leading-relaxed tracking-normal"
                 >
                   Book a Test Ride
                 </button>
@@ -223,7 +223,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
               <li>
                 <button 
                   onClick={onOpenOffer} 
-                  className="text-[#fef08a] hover:text-white transition-colors text-left font-bold cursor-pointer block leading-relaxed tracking-normal"
+                  className="text-[#10b981] hover:text-white transition-colors text-left font-bold cursor-pointer block leading-relaxed tracking-normal"
                 >
                   Diwali Scratch &amp; Win Offers
                 </button>
@@ -231,7 +231,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
               <li>
                 <button 
                   onClick={onOpenCalculator} 
-                  className="text-stone-300 hover:text-[#fef08a] transition-colors text-left cursor-pointer block leading-snug"
+                  className="text-stone-300 hover:text-[#10b981] transition-colors text-left cursor-pointer block leading-snug"
                 >
                   Petrol vs EV Fuel Savings
                 </button>
@@ -239,7 +239,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
               <li>
                 <button 
                   onClick={onOpenCalculator} 
-                  className="text-stone-300 hover:text-[#fef08a] transition-colors text-left cursor-pointer block leading-snug"
+                  className="text-stone-300 hover:text-[#10b981] transition-colors text-left cursor-pointer block leading-snug"
                 >
                   Monthly EMI Calculator
                 </button>
@@ -247,7 +247,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
               <li>
                 <a 
                   href="#dealership" 
-                  className="text-stone-300 hover:text-[#fef08a] transition-colors block leading-snug"
+                  className="text-stone-300 hover:text-[#10b981] transition-colors block leading-snug"
                 >
                   Dealer Locator (Jhalwa, Prayagraj)
                 </a>
@@ -269,7 +269,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTestRide, onOpenOffer, onO
             </span>
             <button
               onClick={scrollToTop}
-              className="w-8 h-8 rounded-lg bg-[#15803d]/40 hover:bg-[#ea580c] text-white border border-[#eab308]/30 flex items-center justify-center transition-colors cursor-pointer"
+              className="w-8 h-8 rounded-lg bg-[#059669] hover:bg-[#047857] text-white border border-[#10b981]/30 flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Scroll back to top"
             >
               <ArrowUp className="w-4 h-4" />

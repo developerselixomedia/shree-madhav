@@ -132,28 +132,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
           
           {/* Eyebrow Kicker */}
           <div className="inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#ea580c] animate-pulse" />
-            <span className="text-[11px] sm:text-xs font-black tracking-[0.16em] uppercase text-[#15803d]">
+            <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse" />
+            <span className="text-[11px] sm:text-xs font-black tracking-[0.16em] uppercase text-stone-700">
               {slide.kicker}
             </span>
           </div>
 
-          {/* Large Bold TVS-Style Model Title */}
+          {/* Large Bold Model Title */}
           <div>
-            <h1 className="font-['Oswald'] italic font-black text-4xl sm:text-6xl lg:text-7xl xl:text-[80px] tracking-tight text-[#111827] uppercase leading-[0.95]">
+            <h1 className="font-['Oswald'] italic font-black text-4xl sm:text-6xl lg:text-7xl xl:text-[80px] tracking-tight text-[#0A0A0A] uppercase leading-[0.95]">
               {slide.title}
             </h1>
-            <h2 className="text-sm sm:text-xl font-black uppercase tracking-wider text-[#ea580c] mt-1">
+            <h2 className="text-sm sm:text-xl font-black uppercase tracking-wider text-[#059669] mt-1">
               {slide.subtitle}
             </h2>
           </div>
 
           {/* Clean Action Button */}
           <div className="flex items-center gap-3 pt-2 sm:pt-3">
-            {/* Primary Saffron CTA Button */}
+            {/* Primary Emerald Green CTA Button */}
             <button
               onClick={handlePrimaryClick}
-              className="py-3 sm:py-3.5 px-6 sm:px-8 text-xs sm:text-sm font-black uppercase tracking-wider rounded-xl bg-[#ea580c] hover:bg-[#c2410c] text-white shadow-lg shadow-orange-500/25 hover:scale-105 transition-all cursor-pointer flex items-center justify-center gap-2 group"
+              className="py-3 sm:py-3.5 px-6 sm:px-8 text-xs sm:text-sm font-black uppercase tracking-wider rounded-xl bg-[#059669] hover:bg-[#047857] text-white shadow-lg shadow-emerald-600/25 hover:scale-105 transition-all cursor-pointer flex items-center justify-center gap-2 group"
             >
               <span>{slide.primaryCta}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -166,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
       {/* ================= 3. DESKTOP CAROUSEL ARROWS (Side-docked) ================= */}
       <button
         onClick={handlePrevSlide}
-        className="hidden sm:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white/90 hover:bg-[#ea580c] text-stone-800 hover:text-white border border-[#E6DAC7] items-center justify-center transition-all backdrop-blur-sm cursor-pointer shadow-xl hover:scale-110 active:scale-95"
+        className="hidden sm:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white/90 hover:bg-[#059669] text-stone-800 hover:text-white border border-[#E6DAC7] items-center justify-center transition-all backdrop-blur-sm cursor-pointer shadow-xl hover:scale-110 active:scale-95"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="w-6 h-6" />
@@ -174,19 +174,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
 
       <button
         onClick={handleNextSlide}
-        className="hidden sm:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white/90 hover:bg-[#ea580c] text-stone-800 hover:text-white border border-[#E6DAC7] items-center justify-center transition-all backdrop-blur-sm cursor-pointer shadow-xl hover:scale-110 active:scale-95"
+        className="hidden sm:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white/90 hover:bg-[#059669] text-stone-800 hover:text-white border border-[#E6DAC7] items-center justify-center transition-all backdrop-blur-sm cursor-pointer shadow-xl hover:scale-110 active:scale-95"
         aria-label="Next Slide"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* ================= 4. TVS-STYLE BOTTOM CONTROLS & TIMER PILL ================= */}
+      {/* ================= 4. BOTTOM CONTROLS & TIMER PILL ================= */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30">
         <div className="bg-[#FDFBF7]/95 backdrop-blur-md px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-2.5 shadow-xl border border-[#E6DAC7]">
           {/* Mobile Prev Button */}
           <button
             onClick={handlePrevSlide}
-            className="sm:hidden p-1 rounded-full text-stone-600 hover:text-[#ea580c] transition-colors"
+            className="sm:hidden p-1 rounded-full text-stone-600 hover:text-[#059669] transition-colors"
             aria-label="Previous Slide Mobile"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -202,8 +202,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
                   onClick={() => setCurrentSlide(idx)}
                   className={`transition-all duration-300 rounded-full cursor-pointer ${
                     isActive
-                      ? 'w-7 sm:w-8 h-2 bg-[#ea580c]'
-                      : 'w-2 h-2 bg-stone-300 hover:bg-[#ea580c]/60'
+                      ? 'w-7 sm:w-8 h-2 bg-[#059669]'
+                      : 'w-2 h-2 bg-stone-300 hover:bg-[#059669]/60'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -214,7 +214,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
           {/* Mobile Next Button */}
           <button
             onClick={handleNextSlide}
-            className="sm:hidden p-1 rounded-full text-stone-600 hover:text-[#ea580c] transition-colors"
+            className="sm:hidden p-1 rounded-full text-stone-600 hover:text-[#059669] transition-colors"
             aria-label="Next Slide Mobile"
           >
             <ChevronRight className="w-4 h-4" />
@@ -222,10 +222,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
         </div>
       </div>
 
-      {/* ================= 5. TVS SIGNATURE BOTTOM PROGRESS BAR ================= */}
+      {/* ================= 5. SIGNATURE BOTTOM PROGRESS BAR ================= */}
       <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#E6DAC7]/60 overflow-hidden z-20">
         <div 
-          className="h-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] transition-all duration-500 ease-out" 
+          className="h-full bg-gradient-to-r from-[#059669] via-[#10b981] to-[#0A0A0A] transition-all duration-500 ease-out" 
           style={{ width: `${((currentSlide + 1) / HERO_SLIDES.length) * 100}%` }}
         />
       </div>

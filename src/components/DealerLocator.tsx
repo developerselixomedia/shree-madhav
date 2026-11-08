@@ -36,28 +36,28 @@ export const DealerLocator: React.FC = () => {
 
             {/* Kicker Badge */}
             <div className="inline-flex items-center gap-2 mb-3 relative z-10">
-              <span className="font-black italic text-[#15803d] text-xs sm:text-sm tracking-tight uppercase">
+              <span className="font-black italic text-[#059669] text-xs sm:text-sm tracking-tight uppercase">
                 VISIT
               </span>
-              <span className="bg-[#ea580c] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[11px] sm:text-xs tracking-wider uppercase transform -skew-x-12 shadow-xs inline-block">
+              <span className="bg-[#0A0A0A] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[11px] sm:text-xs tracking-wider uppercase transform -skew-x-12 shadow-xs inline-block">
                 THE SHOWROOM
               </span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#15803d] uppercase tracking-tight leading-[1.08] relative z-10">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0A0A0A] uppercase tracking-tight leading-[1.08] relative z-10">
               IN THE HEART <br />
               OF <br />
-              <span className="text-[#ea580c]">JHALWA, PRAYAGRAJ.</span>
+              <span className="text-[#059669]">JHALWA, PRAYAGRAJ.</span>
             </h2>
           </div>
 
           {/* Right Column: Illuminated Signboard Banner + Address & Action Buttons */}
           <div className="lg:col-span-7 flex flex-col items-start lg:items-end text-left lg:text-right space-y-4">
             
-            {/* Illuminated Signboard Banner in Saffron / Amber Brand Theme */}
-            <div className="inline-flex items-center gap-3.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] text-white shadow-xl shadow-orange-900/20 border border-[#fef08a]/40">
-              <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 flex-shrink-0">
-                <Zap className="w-5 h-5 text-[#fef08a] fill-[#fef08a]" />
+            {/* Illuminated Signboard Banner in Luxury Black & Emerald Green */}
+            <div className="inline-flex items-center gap-3.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-[#0A0A0A] text-white shadow-xl shadow-black/20 border border-stone-800">
+              <div className="w-10 h-10 rounded-full bg-[#059669] flex items-center justify-center border border-emerald-400 flex-shrink-0">
+                <Zap className="w-5 h-5 text-white fill-white" />
               </div>
               <span className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-wider text-white drop-shadow-md">
                 {SHOWROOM_INFO.name}
@@ -66,13 +66,13 @@ export const DealerLocator: React.FC = () => {
 
             {/* Preserved Full Address & Showroom Details */}
             <div className="text-xs sm:text-sm text-[#44403c] leading-relaxed max-w-lg space-y-1">
-              <p className="font-bold text-[#14532d]">
+              <p className="font-bold text-[#0A0A0A]">
                 Shaha Urf Pipal Gaon, Beside Jhalwa Crossing,
               </p>
               <p>
                 Jhalwa, Prayagraj, Uttar Pradesh 211012
               </p>
-              <p className="text-[11px] font-mono text-[#ea580c] font-bold">
+              <p className="text-[11px] font-mono text-[#059669] font-bold">
                 Landmark: Near IIIT-Allahabad Approach Road &bull; Open All 7 Days: 9:30 AM – 8:30 PM
               </p>
             </div>
@@ -83,7 +83,7 @@ export const DealerLocator: React.FC = () => {
                 href={`https://maps.google.com/?q=${encodeURIComponent(SHOWROOM_INFO.googleMapsQuery)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-md cursor-pointer hover:scale-105"
+                className="px-6 py-2.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-md cursor-pointer hover:scale-105"
               >
                 <span>Get directions</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -93,17 +93,17 @@ export const DealerLocator: React.FC = () => {
                 href={`https://wa.me/${SHOWROOM_INFO.whatsapp}?text=Hi%20Shree%20Madhav%20Enterprises,%20I%20am%20planning%20to%20visit%20the%20showroom%20today.%20Please%20share%20exact%20location%20pin.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-full bg-[#FDFBF7] hover:bg-[#FBF7EE] text-[#15803d] font-bold text-xs sm:text-sm border border-[#E6DAC7] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                className="px-5 py-2.5 rounded-full bg-[#FDFBF7] hover:bg-[#FBF7EE] text-stone-900 font-bold text-xs sm:text-sm border border-[#E6DAC7] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
               >
-                <MessageCircle className="w-4 h-4 text-[#ea580c]" />
+                <MessageCircle className="w-4 h-4 text-[#059669]" />
                 <span>WhatsApp Pin</span>
               </a>
 
               <a
                 href={`tel:${SHOWROOM_INFO.phone}`}
-                className="px-5 py-2.5 rounded-full bg-[#FDFBF7] hover:bg-[#FBF7EE] text-[#15803d] font-bold text-xs sm:text-sm border border-[#E6DAC7] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                className="px-5 py-2.5 rounded-full bg-[#FDFBF7] hover:bg-[#FBF7EE] text-stone-900 font-bold text-xs sm:text-sm border border-[#E6DAC7] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
               >
-                <Phone className="w-3.5 h-3.5 text-[#eab308]" />
+                <Phone className="w-3.5 h-3.5 text-[#059669]" />
                 <span>Call {SHOWROOM_INFO.phoneFormatted}</span>
               </a>
             </div>
@@ -151,9 +151,9 @@ export const DealerLocator: React.FC = () => {
               href={`https://maps.google.com/?q=${encodeURIComponent(SHOWROOM_INFO.googleMapsQuery)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#08120B]/95 hover:bg-black text-white text-xs font-bold shadow-xl backdrop-blur-md transition-all hover:scale-105 border border-[#eab308]/40"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0A0A0A] hover:bg-[#111111] text-white text-xs font-bold shadow-xl backdrop-blur-md transition-all hover:scale-105 border border-[#059669]/50"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#ea580c]" />
+              <MapPin className="w-3.5 h-3.5 text-[#059669]" />
               <span>Open in Google Maps</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-stone-300" />
             </a>

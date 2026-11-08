@@ -417,15 +417,15 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                   className={`absolute z-30 w-24 h-24 sm:w-28 sm:h-28 xl:w-32 xl:h-32 rounded-full flex flex-col items-center justify-center font-black text-white uppercase tracking-wider shadow-2xl border-4 border-white transition-all cursor-pointer ${
                     isSpinning
                       ? 'bg-stone-400 cursor-not-allowed scale-95 opacity-80'
-                      : 'bg-gradient-to-br from-[#ea580c] to-[#c2410c] hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(234,88,12,0.35)]'
+                      : 'bg-[#059669] hover:bg-[#047857] hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(5,150,105,0.35)]'
                   }`}
                   aria-label="Spin the official rewards wheel"
                 >
-                  <Sparkles className="w-5 h-5 text-[#fef08a] mb-0.5" />
+                  <Sparkles className="w-5 h-5 text-[#10b981] mb-0.5" />
                   <span className="text-base sm:text-lg font-black tracking-wider font-['Oswald'] italic">
                     {isSpinning ? 'SPINNING' : 'SPIN'}
                   </span>
-                  <span className="text-[9px] text-[#fef08a] font-bold tracking-widest -mt-0.5">CLICK ME</span>
+                  <span className="text-[9px] text-[#10b981] font-bold tracking-widest -mt-0.5">CLICK ME</span>
                 </button>
 
               </div>
@@ -434,20 +434,20 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
             {/* Quick Action below the dial when modal is closed */}
             {wonPrize && !isModalOpen && (
               <div className="mt-6 p-4 rounded-2xl bg-[#FDFBF7] border border-[#E6DAC7] shadow-md flex items-center gap-3 w-full max-w-md">
-                <div className="w-10 h-10 rounded-full bg-[#ea580c]/10 text-[#ea580c] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#059669]/10 text-[#059669] flex items-center justify-center flex-shrink-0">
                   {renderPrizeIcon(wonPrize.iconType, "w-5 h-5")}
                 </div>
                 <div>
                   <div className="text-xs font-bold text-gray-900 line-clamp-1">
                     Won: {wonPrize.fullName}
                   </div>
-                  <div className="text-[11px] font-mono font-bold text-[#ea580c]">
+                  <div className="text-[11px] font-mono font-bold text-[#059669]">
                     Voucher: {voucherCode}
                   </div>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="ml-auto px-4 py-2 rounded-xl bg-[#ea580c] text-white text-xs font-black uppercase transition-all shadow-sm hover:bg-[#c2410c] cursor-pointer"
+                  className="ml-auto px-4 py-2 rounded-xl bg-[#0A0A0A] hover:bg-[#059669] text-white text-xs font-black uppercase transition-all shadow-sm cursor-pointer"
                 >
                   View
                 </button>
@@ -461,23 +461,23 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
             
             {/* Top Festive Eyebrow Pill */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300 text-amber-900 text-xs font-black uppercase tracking-wider shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-[#ea580c] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-black uppercase tracking-wider shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse" />
                 <span>DIWALI & FESTIVAL MAHA DHAMAKA</span>
               </span>
-              <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-stone-700 bg-stone-100 border border-stone-200 px-3 py-1 rounded-full uppercase tracking-wider">
                 100% Assured Gifts on Spot
               </span>
             </div>
 
             {/* Huge Stacked Headline */}
             <div>
-              <h2 className="text-3xl sm:text-5xl xl:text-6xl font-black text-[#15803d] tracking-normal leading-[1.12] uppercase">
+              <h2 className="text-3xl sm:text-5xl xl:text-6xl font-black text-[#0A0A0A] tracking-normal leading-[1.12] uppercase">
                 WIN ASSURED <br />
                 FESTIVAL <br />
-                <span className="text-[#ea580c]">GIFTS.</span>
+                <span className="text-[#059669]">GIFTS.</span>
               </h2>
-              <div className="w-20 h-1.5 bg-gradient-to-r from-[#ea580c] to-[#eab308] mt-4 mb-3 rounded-full" />
+              <div className="w-20 h-1.5 bg-gradient-to-r from-[#059669] to-slate-400 mt-4 mb-3 rounded-full" />
             </div>
 
             {/* Comprehensive Descriptive Paragraph */}
@@ -488,7 +488,7 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
             {/* Scheme Feature Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FDFBF7] border border-[#E6DAC7] text-stone-800 text-[11px] font-bold shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#059669]" />
                 <span>8 Assured Prizes</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FDFBF7] border border-[#E6DAC7] text-stone-800 text-[11px] font-bold shadow-xs">
@@ -504,7 +504,7 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
               <button
                 onClick={handleSpinWheel}
                 disabled={isSpinning}
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-orange-500/25 flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
+                className="px-8 py-4 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-emerald-700/25 flex items-center gap-2.5 cursor-pointer hover:scale-105 active:scale-95"
               >
                 <RotateCw className={`w-4 h-4 ${isSpinning ? 'animate-spin' : ''}`} />
                 <span>{isSpinning ? 'SPINNING DIAL...' : 'SPIN THE WHEEL NOW'}</span>
@@ -514,11 +514,11 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
             {/* Showroom Verification Stamp */}
             <div className="pt-4 border-t border-[#E6DAC7] flex flex-wrap items-center justify-between text-xs text-stone-500 gap-2">
               <span className="flex items-center gap-1.5 font-bold text-stone-700">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <ShieldCheck className="w-4 h-4 text-[#059669]" />
                 <span>Authorized Offer &bull; Shree Madhav Enterprises</span>
               </span>
-              <span className="font-bold text-[#14532d] flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-[#ea580c]" />
+              <span className="font-bold text-stone-900 flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-[#059669]" />
                 <span>Shaha Urf Pipal Gaon, Jhalwa</span>
               </span>
             </div>
@@ -578,7 +578,7 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
 
               <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-md bg-[#FBF7EE] border border-[#E6DAC7] text-xs shadow-xs">
                 <span className="font-bold text-stone-500 tracking-wider uppercase text-[11px]">VOUCHER CODE :</span>
-                <span className="font-mono font-black text-sm text-[#ea580c] tracking-wider">{voucherCode}</span>
+                <span className="font-mono font-black text-sm text-[#059669] tracking-wider">{voucherCode}</span>
               </div>
 
             </div>
@@ -600,7 +600,7 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                         placeholder="e.g. Ramesh Kumar"
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#E6DAC7] text-xs text-stone-800 focus:outline-none focus:bg-white focus:border-[#ea580c] focus:ring-1 focus:ring-[#ea580c] transition-all"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#E6DAC7] text-xs text-stone-800 focus:outline-none focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] transition-all"
                         autoComplete="name"
                         required
                       />
@@ -617,7 +617,7 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                         placeholder="e.g. 9876543210"
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#E6DAC7] text-xs text-stone-800 focus:outline-none focus:bg-white focus:border-[#ea580c] focus:ring-1 focus:ring-[#ea580c] transition-all"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#E6DAC7] text-xs text-stone-800 focus:outline-none focus:bg-white focus:border-[#059669] focus:ring-1 focus:ring-[#059669] transition-all"
                         autoComplete="tel"
                         required
                       />
@@ -626,9 +626,9 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+                    className="w-full py-3.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
                   >
-                    <Sparkles className="w-4 h-4 text-[#fef08a]" />
+                    <Sparkles className="w-4 h-4 text-white" />
                     <span>CLAIM GIFT VOUCHER ON WHATSAPP</span>
                   </button>
 

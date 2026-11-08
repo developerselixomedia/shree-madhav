@@ -44,21 +44,21 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
           <div className="bg-[#FBF7EE] p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#E6DAC7]">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-[#15803d] text-white uppercase border border-[#eab308]/40">
+                <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-[#0A0A0A] text-white uppercase border border-[#059669]/40">
                   {vehicle.category}
                 </span>
                 {vehicle.isOfferEligible && (
-                  <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-[#ea580c] text-white uppercase flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-[#fef08a]" />
+                  <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-[#059669] text-white uppercase flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-white" />
                     <span>Scratch Card Offer</span>
                   </span>
                 )}
               </div>
-              <h2 id="modal-title" className="text-2xl font-black text-[#15803d] uppercase tracking-tight">
+              <h2 id="modal-title" className="text-2xl font-black text-[#0A0A0A] uppercase tracking-tight">
                 {vehicle.name}
               </h2>
               {vehicle.subName && (
-                <p className="text-xs text-[#ea580c] font-bold uppercase">{vehicle.subName}</p>
+                <p className="text-xs text-[#059669] font-bold uppercase">{vehicle.subName}</p>
               )}
             </div>
 
@@ -69,11 +69,11 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                 alt={vehicle.name}
                 className="w-full h-56 sm:h-64 object-cover object-center rounded-xl"
               />
-              <div className="absolute bottom-4 left-4 bg-[#14532d] text-white px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm border border-[#eab308]/40">
+              <div className="absolute bottom-4 left-4 bg-[#0A0A0A] text-white px-3 py-1 rounded-full text-xs font-bold uppercase shadow-sm border border-[#059669]/40">
                 {vehicle.category === 'battery' ? (
-                  <span>Warranty: <strong className="text-[#fef08a]">{vehicle.warranty}</strong></span>
+                  <span>Warranty: <strong className="text-emerald-400">{vehicle.warranty}</strong></span>
                 ) : (
-                  <span>Color: <strong className="text-[#fef08a]">{activeColor.name}</strong></span>
+                  <span>Color: <strong className="text-emerald-400">{activeColor.name}</strong></span>
                 )}
               </div>
             </div>
@@ -81,7 +81,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
             {/* Color Selector (Vehicles only) */}
             {vehicle.category !== 'battery' && vehicle.colors.length > 1 && (
               <div>
-                <span className="text-xs font-bold uppercase text-[#15803d] block mb-2">Available Colors:</span>
+                <span className="text-xs font-bold uppercase text-[#0A0A0A] block mb-2">Available Colors:</span>
                 <div className="flex items-center gap-2 flex-wrap">
                   {vehicle.colors.map((c, idx) => (
                     <button
@@ -89,8 +89,8 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                       onClick={() => setActiveColorIdx(idx)}
                       className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                         idx === activeColorIdx
-                          ? 'border-[#ea580c] bg-orange-50 text-[#ea580c] shadow-xs'
-                          : 'border-[#E6DAC7] bg-[#FDFBF7] text-stone-600 hover:border-[#ea580c]/50'
+                          ? 'border-[#059669] bg-emerald-50 text-[#059669] shadow-xs'
+                          : 'border-[#E6DAC7] bg-[#FDFBF7] text-stone-600 hover:border-[#059669]/50'
                       }`}
                     >
                       <span
@@ -107,7 +107,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
             {/* Compatibility info for batteries */}
             {vehicle.category === 'battery' && (
               <div className="p-3.5 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] text-xs text-stone-700 space-y-1">
-                <span className="font-black text-[#14532d] uppercase tracking-wider block">Universal Compatibility:</span>
+                <span className="font-black text-[#0A0A0A] uppercase tracking-wider block">Universal Compatibility:</span>
                 <p className="text-[11px] leading-relaxed text-stone-600">
                   Engineered to fit high-speed and low-speed Electric Scooties, Commercial E-Rickshaws, and Loaders across Prayagraj.
                 </p>
@@ -124,20 +124,20 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                   <span className="text-[10px] text-stone-500 uppercase font-bold">
                     {vehicle.category === 'battery' ? 'Showroom Price' : 'Ex-Showroom Prayagraj'}
                   </span>
-                  <div className="text-2xl font-black text-[#14532d]">
+                  <div className="text-2xl font-black text-[#0A0A0A]">
                     ₹{vehicle.price.toLocaleString('en-IN')}*
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[10px] text-[#ea580c] uppercase font-bold">
+                  <span className="text-[10px] text-[#059669] uppercase font-bold">
                     {vehicle.category === 'battery' ? 'Old Battery Trade-in' : 'Down Payment From'}
                   </span>
-                  <div className="text-xl font-black text-[#ea580c]">
+                  <div className="text-xl font-black text-[#059669]">
                     {vehicle.category === 'battery' ? 'Up to ₹5,000 Off*' : `₹${vehicle.downPayment.toLocaleString('en-IN')}*`}
                   </div>
                   {vehicle.monthlyEmi > 0 && (
-                    <span className="text-[11px] text-[#15803d] font-bold">EMI ₹{vehicle.monthlyEmi}/mo*</span>
+                    <span className="text-[11px] text-[#059669] font-bold">EMI ₹{vehicle.monthlyEmi}/mo*</span>
                   )}
                 </div>
               </div>
@@ -148,17 +148,17 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                   <>
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <Zap className="w-3.5 h-3.5 text-[#15803d]" />
+                        <Zap className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Capacity &amp; Voltage</span>
                       </div>
-                      <div className="font-black text-[#15803d] text-sm">
+                      <div className="font-black text-[#0A0A0A] text-sm">
                         {vehicle.id === 'ultra-lfp-master-pack' ? '72V 45Ah (3.24 kWh)' : vehicle.id === 'lithium-smart-pack' ? '60V / 72V 36Ah' : '48V/60V 28-32Ah'}
                       </div>
                     </div>
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <BatteryCharging className="w-3.5 h-3.5 text-[#ea580c]" />
+                        <BatteryCharging className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Cycle Lifespan</span>
                       </div>
                       <div className="font-black text-stone-900 text-sm">
@@ -168,7 +168,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <BatteryCharging className="w-3.5 h-3.5 text-[#15803d]" />
+                        <BatteryCharging className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Fast Charge Time</span>
                       </div>
                       <div className="font-black text-stone-900 text-sm">{vehicle.chargingTime}</div>
@@ -176,25 +176,25 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#eab308]" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Official Warranty</span>
                       </div>
-                      <div className="font-black text-[#15803d] text-sm">{vehicle.warranty}</div>
+                      <div className="font-black text-[#0A0A0A] text-sm">{vehicle.warranty}</div>
                     </div>
                   </>
                 ) : vehicle.category === 'rickshaw' ? (
                   <>
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <Zap className="w-3.5 h-3.5 text-[#15803d]" />
+                        <Zap className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Daily Route Range</span>
                       </div>
-                      <div className="font-black text-[#15803d] text-sm">{vehicle.rangeKm}</div>
+                      <div className="font-black text-[#0A0A0A] text-sm">{vehicle.rangeKm}</div>
                     </div>
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <Gauge className="w-3.5 h-3.5 text-[#ea580c]" />
+                        <Gauge className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Seating / Payload</span>
                       </div>
                       <div className="font-black text-stone-900 text-sm">
@@ -204,7 +204,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <BatteryCharging className="w-3.5 h-3.5 text-[#15803d]" />
+                        <BatteryCharging className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Daily Running Cost</span>
                       </div>
                       <div className="font-black text-stone-900 text-sm">Only ₹35 - ₹45 / day</div>
@@ -212,25 +212,25 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#eab308]" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Warranty</span>
                       </div>
-                      <div className="font-black text-[#15803d] text-sm">{vehicle.warranty}</div>
+                      <div className="font-black text-[#0A0A0A] text-sm">{vehicle.warranty}</div>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <Zap className="w-3.5 h-3.5 text-[#15803d]" />
+                        <Zap className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Range per Charge</span>
                       </div>
-                      <div className="font-black text-[#15803d] text-sm">{vehicle.rangeKm}</div>
+                      <div className="font-black text-[#0A0A0A] text-sm">{vehicle.rangeKm}</div>
                     </div>
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <Gauge className="w-3.5 h-3.5 text-[#ea580c]" />
+                        <Gauge className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Top Speed</span>
                       </div>
                       <div className="font-black text-stone-900 text-sm">{vehicle.topSpeedKmH}</div>
@@ -238,7 +238,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <BatteryCharging className="w-3.5 h-3.5 text-[#15803d]" />
+                        <BatteryCharging className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Charging Time</span>
                       </div>
                       <div className="font-black text-stone-900 text-sm">{vehicle.chargingTime}</div>
@@ -246,10 +246,10 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
                     <div className="p-3 rounded-xl bg-white border border-[#E6DAC7] shadow-xs">
                       <div className="flex items-center gap-1.5 text-stone-500 mb-1 font-semibold">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#eab308]" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#059669]" />
                         <span>Warranty</span>
                       </div>
-                      <div className="font-black text-[#15803d] text-sm">{vehicle.warranty}</div>
+                      <div className="font-black text-[#0A0A0A] text-sm">{vehicle.warranty}</div>
                     </div>
                   </>
                 )}
@@ -257,13 +257,13 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
               {/* Highlights */}
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-[#15803d] mb-2">
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#0A0A0A] mb-2">
                   Key Features &amp; Highlights
                 </h4>
                 <ul className="space-y-1.5">
                   {vehicle.highlights.map((h, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-stone-700">
-                      <Check className="w-4 h-4 text-[#15803d] flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-[#059669] flex-shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -272,7 +272,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
 
               {/* Full Specs Table */}
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-[#15803d] mb-2">
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#0A0A0A] mb-2">
                   Technical Specifications
                 </h4>
                 <div className="rounded-xl border border-[#E6DAC7] overflow-hidden text-xs">
@@ -284,7 +284,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                       }`}
                     >
                       <span className="text-stone-600">{s.label}</span>
-                      <span className="text-[#15803d] font-bold">{s.value}</span>
+                      <span className="text-[#059669] font-bold">{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -303,7 +303,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                     onBookTestRide(vehicle.id);
                   }
                 }}
-                className="py-3 px-4 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-orange-900/20 cursor-pointer flex items-center justify-center gap-1.5"
+                className="py-3 px-4 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-900/20 cursor-pointer flex items-center justify-center gap-1.5 transition-all hover:scale-105"
               >
                 {vehicle.category === 'battery' ? (
                   <>
