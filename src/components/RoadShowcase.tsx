@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Zap, 
-  MapPin, 
-  Phone, 
-  MessageCircle, 
   RotateCcw, 
-  ArrowUpRight, 
-  Calendar,
-  Sparkles
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  BatteryCharging,
+  Gauge
 } from 'lucide-react';
-import { SHOWROOM_INFO } from '../data/inventory';
 
 interface RoadShowcaseProps {
   onOpenTestRide?: (modelId?: string) => void;
@@ -18,14 +16,13 @@ interface RoadShowcaseProps {
 export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) => {
   const sectionRef = useRef<HTMLElement>(null);
   
-  // Steps: 0 = Scooty, 1 = Rickshaw, 2 = Showroom
+  // Steps: 0 = Scooty, 1 = Rickshaw
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [isVehicleIn, setIsVehicleIn] = useState<boolean>(false);
   const [isVehicleOut, setIsVehicleOut] = useState<boolean>(false);
   const [revealedChars, setRevealedChars] = useState<number>(0);
   const [isTextHiding, setIsTextHiding] = useState<boolean>(false);
   const [isSubTextVisible, setIsSubTextVisible] = useState<boolean>(false);
-  const [isShowroomActive, setIsShowroomActive] = useState<boolean>(false);
   const [hasStarted, setHasStarted] = useState<boolean>(false);
 
   const loopTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -36,11 +33,14 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
       titleLine1: 'RIDE',
       titleLine2: 'GREEN',
       color: '#ea580c',
-      label: 'E-Scooty Pro',
+      label: 'E-Scooty Pro Series',
       badge: 'Zero Emission • 120 KM Range',
+      speed: '65 km/h',
+      charging: '2.5 Hrs Fast Charge',
+      warranty: '3-Year Battery Warranty',
       sub: (
         <>
-          <strong className="text-[#14532d] font-bold">E-Scooty</strong> — Zero petrol queues, whisper-quiet motor, and up to 120 km range. Down payment starts from just ₹2,999 on spot in Prayagraj.
+          <strong className="text-[#14532d] font-bold">E-Scooty Pro</strong> — Zero petrol queues, whisper-quiet motor, and up to 120 km range on a single charge. Down payment starts from just ₹2,999 with instant RTO spot approval in Prayagraj.
         </>
       ),
     },
@@ -51,9 +51,12 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
       color: '#15803d',
       label: 'Commercial E-Rickshaw',
       badge: 'Rozgaar Series • Earn ₹45k+/mo',
+      speed: '25 km/h Regulated',
+      charging: 'High-Torque BLDC Motor',
+      warranty: 'Heavy-Duty Leaf Suspension',
       sub: (
         <>
-          <strong className="text-[#ea580c] font-bold">E-Rickshaw</strong> — Power your daily income with electric efficiency. 4+1 passenger capacity, low running cost (under ₹45/day), and fast bank loans.
+          <strong className="text-[#ea580c] font-bold">E-Rickshaw Rozgaar</strong> — Power your daily income with unmatched electric efficiency. 4+1 passenger capacity, low running cost under ₹45 per day, and fast bank tie-up financing.
         </>
       ),
     },
@@ -70,26 +73,8 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
     // Clear any pending timers
     if (loopTimerRef.current) clearTimeout(loopTimerRef.current);
 
-    if (index === 2) {
-      // Showroom Step
-      setCurrentStep(2);
-      setIsVehicleIn(false);
-      setIsVehicleOut(false);
-      setRevealedChars(0);
-      setIsSubTextVisible(false);
-      setIsShowroomActive(true);
-
-      // After 8 seconds, loop back to slide 0
-      loopTimerRef.current = setTimeout(() => {
-        setIsShowroomActive(false);
-        runSlide(0);
-      }, 8500);
-      return;
-    }
-
-    // Vehicle Steps (0 or 1)
-    setIsShowroomActive(false);
-    setCurrentStep(index);
+    const safeIndex = index % slidesData.length;
+    setCurrentStep(safeIndex);
     setIsVehicleOut(false);
     setIsVehicleIn(true);
     setRevealedChars(0);
@@ -97,32 +82,33 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
     setIsSubTextVisible(false);
 
     // Stagger character flip in after vehicle starts driving up
-    const charCount = `${slidesData[index].titleLine1}\n${slidesData[index].titleLine2}`.length;
+    const charCount = `${slidesData[safeIndex].titleLine1}\n${slidesData[safeIndex].titleLine2}`.length;
     
     // Reveal letters 1 by 1
     for (let i = 1; i <= charCount; i++) {
       setTimeout(() => {
         setRevealedChars(i);
-      }, 700 + i * 90);
+      }, 650 + i * 85);
     }
 
     // Show subtext after headline completes
     setTimeout(() => {
       setIsSubTextVisible(true);
-    }, 700 + charCount * 90 + 250);
+    }, 650 + charCount * 85 + 220);
 
-    // After 4.6s: flip text out & vehicle drives out
+    // After 4.8s: flip text out & vehicle drives out
     setTimeout(() => {
       setIsTextHiding(true);
       setIsSubTextVisible(false);
       setIsVehicleIn(false);
       setIsVehicleOut(true);
-    }, 4600);
+    }, 4800);
 
-    // Advance to next step at 6.4s
+    // Advance to next vehicle step at 6.6s
+    const nextIndex = (safeIndex + 1) % slidesData.length;
     loopTimerRef.current = setTimeout(() => {
-      runSlide(index + 1);
-    }, 6400);
+      runSlide(nextIndex);
+    }, 6600);
   };
 
   const handleManualSelect = (idx: number) => {
@@ -139,7 +125,7 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
           runSlide(0);
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -165,12 +151,12 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
           100% { top: 0%; }
         }
         @keyframes vehicleDriveIn {
-          0% { bottom: -65%; }
-          100% { bottom: 25%; }
+          0% { bottom: -70%; }
+          100% { bottom: 24%; }
         }
         @keyframes vehicleDriveOut {
-          0% { bottom: 25%; }
-          100% { bottom: 125%; }
+          0% { bottom: 24%; }
+          100% { bottom: 130%; }
         }
         .highway-dashes {
           animation: highwayDashMove 0.85s linear infinite;
@@ -188,34 +174,34 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
         }
       `}</style>
 
-      {/* Main Split Layout: 40% Highway on Left, 60% Interactive Kinetic Canvas on Right */}
-      <div className="w-full flex flex-col md:flex-row min-h-[580px] md:min-h-[660px] lg:min-h-[720px] max-h-[900px]">
+      {/* Main Split Layout: Spacious, Grand Tall Expressway Section */}
+      <div className="w-full flex flex-col md:flex-row min-h-[780px] sm:min-h-[840px] md:min-h-[880px] lg:min-h-[940px] xl:min-h-[980px]">
         
-        {/* ================= LEFT COLUMN: THE HIGHWAY ROAD (40% Width) ================= */}
-        <div className="relative w-full md:w-[40%] h-[300px] sm:h-[360px] md:h-auto overflow-hidden bg-gradient-to-b from-[#FBF7EE] to-[#E6DAC7] border-b-2 md:border-b-0 md:border-r-2 border-[#E6DAC7] flex items-center justify-center">
+        {/* ================= LEFT COLUMN: THE HIGHWAY ROAD (42% Width) ================= */}
+        <div className="relative w-full md:w-[42%] h-[420px] sm:h-[480px] md:h-auto overflow-hidden bg-gradient-to-b from-[#FBF7EE] to-[#E6DAC7] border-b-2 md:border-b-0 md:border-r-2 border-[#E6DAC7] flex items-center justify-center">
           
           {/* Vertical Saffron Highway Strip */}
-          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[72%] sm:w-[68%] md:w-[74%] bg-gradient-to-r from-[#c2410c] via-[#ea580c] to-[#c2410c] shadow-[inset_0_0_30px_rgba(0,0,0,0.25)]">
+          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[76%] sm:w-[72%] md:w-[74%] lg:w-[70%] bg-gradient-to-r from-[#c2410c] via-[#ea580c] to-[#c2410c] shadow-[inset_0_0_35px_rgba(0,0,0,0.3)]">
             
             {/* Road Curbs (Textured side lines) */}
-            <div className="absolute left-0 top-0 bottom-0 w-2.5 bg-white/40 border-r border-black/20" />
-            <div className="absolute right-0 top-0 bottom-0 w-2.5 bg-white/40 border-l border-black/20" />
+            <div className="absolute left-0 top-0 bottom-0 w-3 bg-white/40 border-r border-black/25" />
+            <div className="absolute right-0 top-0 bottom-0 w-3 bg-white/40 border-l border-black/25" />
 
             {/* Infinite Moving White Highway Dashes */}
             <div
-              className="highway-dashes absolute left-1/2 -translate-x-1/2 w-3 sm:w-3.5 h-[200%] z-10 pointer-events-none"
+              className="highway-dashes absolute left-1/2 -translate-x-1/2 w-3.5 sm:w-4 h-[200%] z-10 pointer-events-none"
               style={{
-                background: 'repeating-linear-gradient(to bottom, #ffffff 0px, #ffffff 28px, transparent 28px, transparent 65px)',
+                background: 'repeating-linear-gradient(to bottom, #ffffff 0px, #ffffff 32px, transparent 32px, transparent 72px)',
               }}
             />
           </div>
 
           {/* Road Asphalt Edge Shadows */}
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#FBF7EE]/40 via-transparent to-[#E6DAC7]/40" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#FBF7EE]/45 via-transparent to-[#E6DAC7]/45" />
 
           {/* Animated Vehicle Track */}
           <div
-            className={`absolute left-1/2 -translate-x-1/2 w-[85%] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] z-20 pointer-events-none ${
+            className={`absolute left-1/2 -translate-x-1/2 w-[85%] max-w-[300px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[460px] z-20 pointer-events-none transition-transform ${
               isVehicleIn
                 ? 'vehicle-drive-in'
                 : isVehicleOut
@@ -233,223 +219,158 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
           </div>
 
           {/* Bottom Left Mode Capsule */}
-          <div className="absolute bottom-4 left-4 z-30 bg-[#08120B]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#eab308]/40 text-white text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-[#ea580c] animate-ping" />
-            <span>Prayagraj Highway Loop</span>
+          <div className="absolute bottom-5 left-5 z-30 bg-[#08120B]/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#eab308]/40 text-white text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-2 shadow-xl">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ea580c] animate-ping" />
+            <span className="text-[#fef08a]">{currentSlide.label}</span>
+            <span className="text-white/50">•</span>
+            <span className="text-white/80">Expressway Live</span>
           </div>
         </div>
 
-        {/* ================= RIGHT COLUMN: KINETIC 3D CONTENT & SHOWROOM DESTINATION (60% Width) ================= */}
-        <div className="relative w-full md:w-[60%] flex flex-col justify-center p-6 sm:p-10 md:p-12 lg:p-16 overflow-hidden bg-[#FDFBF7]">
+        {/* ================= RIGHT COLUMN: KINETIC 3D CONTENT (58% Width) ================= */}
+        <div className="relative w-full md:w-[58%] flex flex-col justify-between p-8 sm:p-12 md:p-16 lg:p-20 xl:p-24 overflow-hidden bg-[#FDFBF7]">
           
           {/* Subtle Background Watermark */}
-          <div className="absolute -top-6 right-6 pointer-events-none select-none z-0 opacity-[0.04]">
-            <span className="font-['Oswald'] font-black text-8xl md:text-9xl text-[#14532d] uppercase italic">
+          <div className="absolute -top-8 right-6 pointer-events-none select-none z-0 opacity-[0.035]">
+            <span className="font-['Oswald'] font-black text-8xl md:text-9xl lg:text-[180px] text-[#14532d] uppercase italic">
               MADHAV
             </span>
           </div>
 
-          {/* Content Mode A: Vehicle Kinetic 3D Headline */}
-          {!isShowroomActive ? (
-            <div className="relative z-10 flex flex-col justify-center h-full max-w-xl">
-              
-              {/* Category Pill Tag */}
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-[11px] font-black uppercase tracking-widest text-[#ea580c] font-mono">
-                  SHREE MADHAV ENTERPRISES &bull; {currentSlide.label}
-                </span>
-              </div>
+          {/* Top Brand Tag */}
+          <div className="relative z-10 flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-mono font-black uppercase tracking-wider text-[#ea580c] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#eab308]" />
+              <span>SHREE MADHAV EV &bull; {currentSlide.label}</span>
+            </span>
+          </div>
 
-              {/* Character by Character 3D Flipping Headline */}
-              <h2 className="font-['Oswald'] font-extrabold italic uppercase tracking-tighter text-6xl sm:text-7xl md:text-8xl lg:text-[104px] leading-[0.92] text-left">
-                {currentChars.map((ch, idx) => {
-                  if (ch === '\n') {
-                    return <br key={`br-${idx}`} />;
-                  }
+          {/* Center: Vehicle Kinetic 3D Headline & Narrative */}
+          <div className="relative z-10 flex flex-col justify-center my-auto py-8 max-w-2xl">
+            
+            {/* Character by Character 3D Flipping Headline */}
+            <h2 className="font-['Oswald'] font-black italic uppercase tracking-tighter text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[116px] leading-[0.9] text-left drop-shadow-sm">
+              {currentChars.map((ch, idx) => {
+                if (ch === '\n') {
+                  return <br key={`br-${idx}`} />;
+                }
 
-                  const isRevealed = idx < revealedChars && !isTextHiding;
+                const isRevealed = idx < revealedChars && !isTextHiding;
 
-                  return (
-                    <span
-                      key={idx}
-                      className="flip-char-3d transition-all duration-300"
-                      style={{
-                        color: currentSlide.color,
-                        opacity: isRevealed ? 1 : 0,
-                        transform: isRevealed
-                          ? 'rotateX(0deg)'
-                          : isTextHiding
-                          ? 'rotateX(-90deg)'
-                          : 'rotateX(90deg)',
-                        marginRight: ch === ' ' ? '0.28em' : '0.01em',
-                      }}
-                    >
-                      {ch}
-                    </span>
-                  );
-                })}
-              </h2>
-
-              {/* Subtitle & Specs Narrative */}
-              <div
-                className={`mt-6 text-sm sm:text-base text-stone-700 leading-relaxed max-w-lg transition-all duration-500 ${
-                  isSubTextVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4'
-                }`}
-              >
-                <p>{currentSlide.sub}</p>
-
-                {/* Live Specification Pill Strip */}
-                <div className="flex flex-wrap items-center gap-2.5 mt-5">
-                  <span className="px-3.5 py-1.5 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-bold text-[#14532d] flex items-center gap-1.5 shadow-xs">
-                    <Zap className="w-3.5 h-3.5 text-[#ea580c]" />
-                    <span>{currentSlide.badge}</span>
-                  </span>
-
-                  <button
-                    onClick={() => onOpenTestRide?.()}
-                    className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#ea580c] to-[#15803d] hover:brightness-110 text-white text-xs font-black uppercase tracking-wider shadow-md hover:scale-105 transition-all cursor-pointer"
+                return (
+                  <span
+                    key={idx}
+                    className="flip-char-3d transition-all duration-300"
+                    style={{
+                      color: currentSlide.color,
+                      opacity: isRevealed ? 1 : 0,
+                      transform: isRevealed
+                        ? 'rotateX(0deg)'
+                        : isTextHiding
+                        ? 'rotateX(-90deg)'
+                        : 'rotateX(90deg)',
+                      marginRight: ch === ' ' ? '0.28em' : '0.01em',
+                    }}
                   >
-                    Test Ride Free &rarr;
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          ) : (
-            /* Content Mode B: Showroom Arrival Destination Panel */
-            <div className="relative z-10 flex flex-col justify-center space-y-4 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
-              
-              {/* Showroom Header */}
-              <div>
-                <div className="inline-flex items-center gap-2 mb-2">
-                  <span className="font-black italic text-[#15803d] text-xs uppercase tracking-tight">
-                    YOU HAVE ARRIVED AT
+                    {ch}
                   </span>
-                  <span className="bg-[#ea580c] text-white px-2.5 py-0.5 rounded-sm font-black italic text-[11px] uppercase tracking-wider transform -skew-x-12 shadow-xs">
-                    THE SHOWROOM
-                  </span>
+                );
+              })}
+            </h2>
+
+            {/* Subtitle & Specs Narrative */}
+            <div
+              className={`mt-6 text-sm sm:text-base md:text-lg text-stone-700 leading-relaxed max-w-xl transition-all duration-500 ${
+                isSubTextVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <p>{currentSlide.sub}</p>
+
+              {/* 3 Metric Pills */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+                <div className="p-3 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] flex items-center gap-2.5 shadow-xs">
+                  <Gauge className="w-4 h-4 text-[#ea580c] shrink-0" />
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-stone-500">Speed / Output</div>
+                    <div className="text-xs font-black text-[#14532d]">{currentSlide.speed}</div>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#15803d] uppercase tracking-tight leading-tight">
-                  IN THE HEART OF <span className="text-[#ea580c]">JHALWA, PRAYAGRAJ.</span>
-                </h3>
-              </div>
-
-              {/* Illuminated Brand Signboard Banner */}
-              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] text-white shadow-lg shadow-orange-900/15 border border-[#fef08a]/40 w-fit">
-                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shrink-0">
-                  <Zap className="w-4 h-4 text-[#fef08a] fill-[#fef08a]" />
+                <div className="p-3 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] flex items-center gap-2.5 shadow-xs">
+                  <BatteryCharging className="w-4 h-4 text-[#15803d] shrink-0" />
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-stone-500">Charging / Motor</div>
+                    <div className="text-xs font-black text-[#14532d]">{currentSlide.charging}</div>
+                  </div>
                 </div>
-                <span className="text-base sm:text-lg font-black uppercase tracking-wider text-white">
-                  {SHOWROOM_INFO.name}
-                </span>
-              </div>
 
-              {/* Address Details */}
-              <div className="text-xs sm:text-[13px] text-stone-700 leading-relaxed space-y-1">
-                <p className="font-bold text-[#14532d]">
-                  Shaha Urf Pipal Gaon, Beside Jhalwa Crossing,
-                </p>
-                <p>
-                  Jhalwa, Prayagraj, Uttar Pradesh 211012
-                </p>
-                <p className="text-[11px] font-mono text-[#ea580c] font-bold">
-                  Landmark: Near IIIT-Allahabad Approach Road &bull; Open All 7 Days: 9:30 AM – 8:30 PM
-                </p>
+                <div className="p-3 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] flex items-center gap-2.5 shadow-xs">
+                  <ShieldCheck className="w-4 h-4 text-[#eab308] shrink-0" />
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-stone-500">Reliability</div>
+                    <div className="text-xs font-black text-[#14532d]">{currentSlide.warranty}</div>
+                  </div>
+                </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-2 pt-1">
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(SHOWROOM_INFO.googleMapsQuery)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#15803d] hover:brightness-110 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md cursor-pointer hover:scale-105"
+              <div className="flex flex-wrap items-center gap-3.5 mt-7">
+                <button
+                  onClick={() => onOpenTestRide?.(currentSlide.id)}
+                  className="px-6 py-3 rounded-full bg-gradient-to-r from-[#ea580c] to-[#15803d] hover:brightness-110 text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-orange-900/15 hover:scale-105 transition-all cursor-pointer flex items-center gap-2"
                 >
-                  <span>Get directions</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
+                  <span>Book Free Test Ride</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
 
-                <a
-                  href={`https://wa.me/${SHOWROOM_INFO.whatsapp}?text=Hi%20Shree%20Madhav%20Enterprises,%20I%20am%20visiting%20the%20showroom.%20Please%20share%20location%20pin.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-full bg-[#FDFBF7] hover:bg-[#FBF7EE] text-[#15803d] font-bold text-xs border border-[#E6DAC7] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#ea580c]" />
-                  <span>WhatsApp Pin</span>
-                </a>
-
-                <a
-                  href={`tel:${SHOWROOM_INFO.phone}`}
-                  className="px-4 py-2.5 rounded-full bg-[#FDFBF7] hover:bg-[#FBF7EE] text-[#15803d] font-bold text-xs border border-[#E6DAC7] transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#eab308]" />
-                  <span>Call {SHOWROOM_INFO.phoneFormatted}</span>
-                </a>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FBF7EE] border border-[#E6DAC7] text-xs font-bold text-[#14532d]">
+                  <Zap className="w-3.5 h-3.5 text-[#ea580c]" />
+                  <span>{currentSlide.badge}</span>
+                </div>
               </div>
-
-              {/* Showroom Map Preview */}
-              <div className="w-full h-36 rounded-xl overflow-hidden border border-[#E6DAC7] shadow-sm">
-                <iframe
-                  title="Shree Madhav Showroom Location Map"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=81.7450%2C25.4050%2C81.8650%2C25.4650&layer=mapnik&marker=25.4320%2C81.7780"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                />
-              </div>
-
             </div>
-          )}
+
+          </div>
 
           {/* Bottom Interactive Step Switcher & Replay Button */}
-          <div className="pt-6 mt-6 border-t border-[#E6DAC7] flex flex-wrap items-center justify-between gap-3 relative z-10">
-            {/* 3 Steps Pills */}
-            <div className="flex items-center gap-2">
+          <div className="pt-6 border-t border-[#E6DAC7] flex flex-wrap items-center justify-between gap-4 relative z-10">
+            {/* 2 Clean Vehicle Tabs */}
+            <div className="flex items-center gap-2.5">
               <button
                 onClick={() => handleManualSelect(0)}
-                className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  currentStep === 0 && !isShowroomActive
-                    ? 'bg-[#ea580c] text-white shadow-xs'
+                className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2 ${
+                  currentStep === 0
+                    ? 'bg-[#ea580c] text-white shadow-md scale-105'
                     : 'bg-[#FBF7EE] text-stone-600 hover:text-[#ea580c] border border-[#E6DAC7]'
                 }`}
               >
-                01 E-Scooty
+                <span className="w-2 h-2 rounded-full bg-white/80" />
+                <span>01 E-Scooty Pro</span>
               </button>
 
               <button
                 onClick={() => handleManualSelect(1)}
-                className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  currentStep === 1 && !isShowroomActive
-                    ? 'bg-[#15803d] text-white shadow-xs'
+                className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-2 ${
+                  currentStep === 1
+                    ? 'bg-[#15803d] text-white shadow-md scale-105'
                     : 'bg-[#FBF7EE] text-stone-600 hover:text-[#15803d] border border-[#E6DAC7]'
                 }`}
               >
-                02 E-Rickshaw
-              </button>
-
-              <button
-                onClick={() => handleManualSelect(2)}
-                className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  isShowroomActive
-                    ? 'bg-gradient-to-r from-[#ea580c] to-[#15803d] text-white shadow-xs'
-                    : 'bg-[#FBF7EE] text-stone-600 hover:text-[#15803d] border border-[#E6DAC7]'
-                }`}
-              >
-                03 Jhalwa Showroom
+                <span className="w-2 h-2 rounded-full bg-white/80" />
+                <span>02 E-Rickshaw</span>
               </button>
             </div>
 
             {/* Replay Button */}
             <button
               onClick={() => handleManualSelect(0)}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15803d] hover:bg-[#ea580c] text-white text-xs font-bold transition-colors cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#15803d] hover:bg-[#ea580c] text-white text-xs font-bold transition-all cursor-pointer shadow-sm hover:scale-105"
               aria-label="Replay Highway Animation"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Replay</span>
+              <span>Restart Animation</span>
             </button>
           </div>
 
@@ -465,7 +386,7 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
 // ==========================================
 
 const ScootyTopSvg = () => (
-  <svg viewBox="0 0 300 620" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)]">
+  <svg viewBox="0 0 300 620" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_16px_30px_rgba(0,0,0,0.38)]">
     <defs>
       <linearGradient id="scootyRed" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stopColor="#ea580c" />
@@ -539,7 +460,7 @@ const ScootyTopSvg = () => (
 );
 
 const RickshawTopSvg = () => (
-  <svg viewBox="0 0 240 680" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)]">
+  <svg viewBox="0 0 240 680" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_16px_30px_rgba(0,0,0,0.38)]">
     <defs>
       <linearGradient id="rickshawYellow" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stopColor="#f59e0b" />
