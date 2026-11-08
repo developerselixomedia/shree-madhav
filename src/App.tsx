@@ -7,6 +7,7 @@ import { RacingSection } from './components/RacingSection';
 import { VehicleModal } from './components/VehicleModal';
 import { TechEcosystem } from './components/TechEcosystem';
 import { ScratchAndWin } from './components/ScratchAndWin';
+import { WhyShreeMadhav } from './components/WhyShreeMadhav';
 import { BatteryExchange } from './components/BatteryExchange';
 import { ReelVault } from './components/ReelVault';
 import { RoadShowcase } from './components/RoadShowcase';
@@ -90,10 +91,10 @@ export function App() {
           onOpenTestRide={() => handleOpenTestRide()}
         />
 
-        {/* 7. Dual Savings & EMI Loan Calculator (Commented out per user request) */}
-        {/* <Calculators
+        {/* 7. Why Shree Madhav EV Trust Grid (Option 3) */}
+        <WhyShreeMadhav
           onOpenTestRide={() => handleOpenTestRide()}
-        /> */}
+        />
 
         {/* 8. Commercial E-Rickshaw & Loader Rozgaar Hub (Temporarily commented out) */}
         {/* <CommercialHub
