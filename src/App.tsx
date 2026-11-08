@@ -12,6 +12,7 @@ import { CommercialHub } from './components/CommercialHub';
 import { BatteryExchange } from './components/BatteryExchange';
 import { BookTestRide } from './components/BookTestRide';
 import { ReelVault } from './components/ReelVault';
+import { RoadShowcase } from './components/RoadShowcase';
 import { DealerLocator } from './components/DealerLocator';
 import { Footer } from './components/Footer';
 import { FloatingBar } from './components/FloatingBar';
@@ -98,7 +99,10 @@ export function App() {
         {/* 11. Reel Vault: "EVERYTHING YOUR BRAND NEEDS TO GROW" */}
         <ReelVault onOpenTestRide={handleOpenTestRide} />
 
-        {/* 12. Dealer Locator & Prayagraj Showroom Center */}
+        {/* 12. Road to Shree Madhav: Electric Highway to Showroom Floor */}
+        <RoadShowcase onOpenTestRide={handleOpenTestRide} />
+
+        {/* 13. Dealer Locator & Prayagraj Showroom Center */}
         <DealerLocator />
 
       </main>
