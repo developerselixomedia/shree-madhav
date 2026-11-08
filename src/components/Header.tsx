@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Search, Headphones, User, Menu, X, Sparkles, BatteryCharging, Video, MapPin, Bike } from 'lucide-react';
+import { ChevronDown, Headphones, Menu, X, Sparkles, Bike } from 'lucide-react';
 import { SHOWROOM_INFO } from '../data/inventory';
 
 interface HeaderProps {
@@ -53,8 +53,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
               </div>
             </a>
 
-            {/* Desktop Navigation Links — 100% Relevant to Shree Madhav EV */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-7 text-[13px] font-bold text-[#1E291F]">
+            {/* Desktop Navigation Links — Clean, Uncongested & Relevant */}
+            <div className="hidden lg:flex items-center gap-7 xl:gap-8 text-[13px] font-bold text-[#1E291F]">
               
               {/* 1. Vehicles Dropdown */}
               <div 
@@ -123,10 +123,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
               {/* 2. Battery Hub */}
               <a 
                 href="#battery-exchange" 
-                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer flex items-center gap-1.5"
+                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer"
               >
-                <BatteryCharging className="w-3.5 h-3.5 text-[#15803d]" />
-                <span>Battery Hub</span>
+                Battery Hub
               </a>
 
               {/* 3. Festive Offers */}
@@ -140,91 +139,51 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTestRide, onOpenOffer }) =
                 }}
                 className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#ea580c]" />
                 <span>Festive Offers</span>
+                <span className="text-[10px] font-black text-[#ea580c] bg-orange-100 border border-orange-200/80 px-1.5 py-0.2 rounded-full">
+                  ₹2,999 DP
+                </span>
               </a>
 
-              {/* 4. Customer Stories / Reels */}
-              <a 
-                href="#reels-vault" 
-                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer flex items-center gap-1.5"
-              >
-                <Video className="w-3.5 h-3.5 text-[#eab308]" />
-                <span>Customer Reels</span>
-              </a>
-
-              {/* 5. Showroom & Service */}
+              {/* 4. Showroom & Service */}
               <a 
                 href="#dealership" 
-                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer flex items-center gap-1.5"
+                className="hover:text-[#ea580c] py-2 transition-colors cursor-pointer"
               >
-                <MapPin className="w-3.5 h-3.5 text-[#15803d]" />
-                <span>Showroom</span>
+                Showroom
               </a>
 
             </div>
           </div>
 
-          {/* Right: Action Utilities */}
-          <div className="hidden lg:flex items-center gap-4 text-xs font-bold text-[#1E291F]">
-            {/* Buy Vehicle Offer Highlight */}
-            <button 
-              onClick={onOpenOffer} 
-              className="text-[#ea580c] hover:text-[#c2410c] transition-colors cursor-pointer uppercase tracking-tight flex items-center gap-1"
-            >
-              <span>Buy Vehicle (₹2,999 DP)</span>
-            </button>
+          {/* Right: Clean, Uncluttered Action Utilities */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-bold text-[#1E291F]">
+            {/* Region Indicator */}
+            <div className="flex items-center gap-1.5 text-stone-600">
+              <span className="text-sm">🇮🇳</span>
+              <span className="font-semibold text-stone-700">Prayagraj</span>
+            </div>
+
             <span className="text-[#E6DAC7]">|</span>
 
-            {/* Test Ride Button */}
+            {/* Direct Call Helpline */}
+            <a 
+              href={`tel:${SHOWROOM_INFO.phone}`} 
+              title={`Call Showroom: ${SHOWROOM_INFO.phoneFormatted}`}
+              className="flex items-center gap-1.5 text-stone-700 hover:text-[#15803d] transition-colors"
+            >
+              <Headphones className="w-3.5 h-3.5 text-[#15803d]" />
+              <span>{SHOWROOM_INFO.phoneFormatted}</span>
+            </a>
+
+            {/* High-Impact Book Test Ride CTA */}
             <button 
               onClick={() => onOpenTestRide()} 
-              className="text-[#15803d] hover:text-[#ea580c] transition-colors cursor-pointer uppercase tracking-tight"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#ea580c] to-[#15803d] hover:brightness-110 text-white font-black text-xs uppercase tracking-wider shadow-sm hover:scale-105 transition-all cursor-pointer flex items-center gap-1.5"
             >
-              Test Ride
+              <Bike className="w-3.5 h-3.5" />
+              <span>Book Test Ride</span>
             </button>
-            <span className="text-[#E6DAC7]">|</span>
-
-            {/* Dealers Anchor */}
-            <a 
-              href="#dealership" 
-              className="hover:text-[#ea580c] transition-colors uppercase tracking-tight"
-            >
-              Jhalwa Showroom
-            </a>
-            <span className="text-[#E6DAC7]">|</span>
-
-            {/* Region Indicator */}
-            <div className="flex items-center gap-1.5 text-[#15803d]">
-              <span>🇮🇳</span>
-              <span className="font-bold">Prayagraj</span>
-            </div>
-
-            {/* Search & Help Buttons */}
-            <div className="flex items-center gap-3 ml-2 pl-3 border-l border-[#E6DAC7] text-stone-600">
-              <a 
-                href="#vehicles" 
-                aria-label="Search Vehicles" 
-                className="hover:text-[#ea580c] transition-colors"
-              >
-                <Search className="w-4 h-4" />
-              </a>
-              <a 
-                href={`tel:${SHOWROOM_INFO.phone}`} 
-                aria-label="Customer Helpline" 
-                title={`Call ${SHOWROOM_INFO.phoneFormatted}`}
-                className="hover:text-[#ea580c] transition-colors"
-              >
-                <Headphones className="w-4 h-4" />
-              </a>
-              <button 
-                onClick={() => onOpenTestRide()} 
-                aria-label="Book Test Ride Modal" 
-                className="hover:text-[#ea580c] transition-colors cursor-pointer"
-              >
-                <User className="w-4 h-4" />
-              </button>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
