@@ -14,7 +14,6 @@ const HERO_SLIDES = [
     title: 'FALCON EV',
     subtitle: 'SPECTRAL COLOUR EDITION',
     primaryCta: 'BOOK A TEST RIDE',
-    secondaryCta: 'VIEW SPECS',
     actionType: 'test-ride',
     bgImage: '/vehicles/scooty-fascino-style.jpg',
   },
@@ -24,7 +23,6 @@ const HERO_SLIDES = [
     title: 'THUNDER MAX',
     subtitle: 'INSTANT TORQUE & SPEED',
     primaryCta: 'BOOK A TEST RIDE',
-    secondaryCta: 'VIEW SPECS',
     actionType: 'test-ride',
     bgImage: '/vehicles/scooty-urban-yellow.jpg',
   },
@@ -34,7 +32,6 @@ const HERO_SLIDES = [
     title: 'SHAAN ROZGAAR',
     subtitle: 'COMMERCIAL E-RICKSHAW (4+1)',
     primaryCta: 'ENQUIRE NOW',
-    secondaryCta: 'VIEW SPECS',
     actionType: 'commercial',
     bgImage: '/vehicles/e-rickshaw-allfine.jpg',
   },
@@ -44,7 +41,6 @@ const HERO_SLIDES = [
     title: 'FESTIVE OFFER',
     subtitle: 'DOWN PAYMENT JUST ₹2,999*',
     primaryCta: 'CLAIM OFFER',
-    secondaryCta: 'VIEW SPECS',
     actionType: 'offer',
     bgImage: '/vehicles/scooty-red-ev.jpg',
   },
@@ -152,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
             </h2>
           </div>
 
-          {/* Clean Action Buttons */}
+          {/* Clean Action Button */}
           <div className="flex items-center gap-3 pt-2 sm:pt-3">
             {/* Primary Saffron CTA Button */}
             <button
@@ -162,14 +158,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
               <span>{slide.primaryCta}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-
-            {/* Secondary Solid Outline Button */}
-            <a
-              href="#vehicles"
-              className="py-3 sm:py-3.5 px-5 sm:px-6 text-xs sm:text-sm font-black uppercase tracking-wider rounded-xl border-2 border-[#15803d] text-[#15803d] hover:bg-[#15803d] hover:text-white transition-all bg-white/70 backdrop-blur-sm cursor-pointer shadow-xs flex items-center justify-center"
-            >
-              <span>{slide.secondaryCta}</span>
-            </a>
           </div>
 
         </div>
