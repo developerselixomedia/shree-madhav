@@ -3,10 +3,7 @@ import {
   Zap, 
   RotateCcw, 
   Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  BatteryCharging,
-  Gauge
+  ArrowRight
 } from 'lucide-react';
 
 interface RoadShowcaseProps {
@@ -35,9 +32,6 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
       color: '#ea580c',
       label: 'E-Scooty Pro Series',
       badge: 'Zero Emission • 120 KM Range',
-      speed: '65 km/h',
-      charging: '2.5 Hrs Fast Charge',
-      warranty: '3-Year Battery Warranty',
       sub: (
         <>
           <strong className="text-[#14532d] font-bold">E-Scooty Pro</strong> — Zero petrol queues, whisper-quiet motor, and up to 120 km range on a single charge. Down payment starts from just ₹2,999 with instant RTO spot approval in Prayagraj.
@@ -51,9 +45,6 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
       color: '#15803d',
       label: 'Commercial E-Rickshaw',
       badge: 'Rozgaar Series • Earn ₹45k+/mo',
-      speed: '25 km/h Regulated',
-      charging: 'High-Torque BLDC Motor',
-      warranty: 'Heavy-Duty Leaf Suspension',
       sub: (
         <>
           <strong className="text-[#ea580c] font-bold">E-Rickshaw Rozgaar</strong> — Power your daily income with unmatched electric efficiency. 4+1 passenger capacity, low running cost under ₹45 per day, and fast bank tie-up financing.
@@ -288,35 +279,8 @@ export const RoadShowcase: React.FC<RoadShowcaseProps> = ({ onOpenTestRide }) =>
             >
               <p>{currentSlide.sub}</p>
 
-              {/* 3 Metric Pills */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
-                <div className="p-3 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] flex items-center gap-2.5 shadow-xs">
-                  <Gauge className="w-4 h-4 text-[#ea580c] shrink-0" />
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-stone-500">Speed / Output</div>
-                    <div className="text-xs font-black text-[#14532d]">{currentSlide.speed}</div>
-                  </div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] flex items-center gap-2.5 shadow-xs">
-                  <BatteryCharging className="w-4 h-4 text-[#15803d] shrink-0" />
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-stone-500">Charging / Motor</div>
-                    <div className="text-xs font-black text-[#14532d]">{currentSlide.charging}</div>
-                  </div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-[#FBF7EE] border border-[#E6DAC7] flex items-center gap-2.5 shadow-xs">
-                  <ShieldCheck className="w-4 h-4 text-[#eab308] shrink-0" />
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-stone-500">Reliability</div>
-                    <div className="text-xs font-black text-[#14532d]">{currentSlide.warranty}</div>
-                  </div>
-                </div>
-              </div>
-
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 mt-7">
+              <div className="flex flex-wrap items-center gap-3.5 mt-6">
                 <button
                   onClick={() => onOpenTestRide?.(currentSlide.id)}
                   className="px-6 py-3 rounded-full bg-gradient-to-r from-[#ea580c] to-[#15803d] hover:brightness-110 text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-orange-900/15 hover:scale-105 transition-all cursor-pointer flex items-center gap-2"
