@@ -88,16 +88,16 @@ export interface PrizeItem {
   iconType: 'washing' | 'tv' | 'fridge' | 'ac' | 'water' | 'induction' | 'helmet' | 'voucher';
 }
 
-// Light theme luxury wheel slices (alternating soft ivory, warm cream, sky tint & blush)
+// Light theme luxury wheel slices (alternating soft ivory and warm cream)
 const PRIZES: PrizeItem[] = [
-  { id: 1, name: 'Washing Machine', fullName: 'Fully Automatic Washing Machine', rarity: 'Mega Prize', color: '#ffffff', accentColor: '#0284c7', iconType: 'washing' },
-  { id: 2, name: 'Smart LED TV', fullName: '32-inch Smart LED HD TV', rarity: 'Grand Prize', color: '#fffdf5', accentColor: '#ea580c', iconType: 'tv' },
-  { id: 3, name: 'Refrigerator', fullName: 'Double-Door Refrigerator', rarity: 'Mega Prize', color: '#ffffff', accentColor: '#0d9488', iconType: 'fridge' },
-  { id: 4, name: 'Inverter AC', fullName: '1.5 Ton Split Inverter AC', rarity: 'Mega Prize', color: '#f0f9ff', accentColor: '#0284c7', iconType: 'ac' },
-  { id: 5, name: 'RO Purifier', fullName: 'Smart RO Water Purifier', rarity: 'Special Prize', color: '#ffffff', accentColor: '#06b6d4', iconType: 'water' },
-  { id: 6, name: 'Induction Cooktop', fullName: 'Smart Induction Cooktop', rarity: 'Assured Prize', color: '#fff7ed', accentColor: '#ea580c', iconType: 'induction' },
-  { id: 7, name: 'Helmet + Coin', fullName: 'ISI Certified Helmet + Pure Silver Coin', rarity: 'Assured Gift', color: '#ffffff', accentColor: '#eab308', iconType: 'helmet' },
-  { id: 8, name: '₹2,999 DP Voucher', fullName: '₹2,999 Down Payment Booking Voucher', rarity: 'Diwali Dhamaka', color: '#fefce8', accentColor: '#ea580c', iconType: 'voucher' },
+  { id: 1, name: 'Washing Machine', fullName: 'Fully Automatic Washing Machine', rarity: 'Mega Prize', color: '#ffffff', accentColor: '#ea580c', iconType: 'washing' },
+  { id: 2, name: 'Smart LED TV', fullName: '32-inch Smart LED HD TV', rarity: 'Grand Prize', color: '#FFFBF2', accentColor: '#15803d', iconType: 'tv' },
+  { id: 3, name: 'Refrigerator', fullName: 'Double-Door Refrigerator', rarity: 'Mega Prize', color: '#ffffff', accentColor: '#ea580c', iconType: 'fridge' },
+  { id: 4, name: 'Inverter AC', fullName: '1.5 Ton Split Inverter AC', rarity: 'Mega Prize', color: '#FFFBF2', accentColor: '#15803d', iconType: 'ac' },
+  { id: 5, name: 'RO Purifier', fullName: 'Smart RO Water Purifier', rarity: 'Special Prize', color: '#ffffff', accentColor: '#ea580c', iconType: 'water' },
+  { id: 6, name: 'Induction Cooktop', fullName: 'Smart Induction Cooktop', rarity: 'Assured Prize', color: '#FFFBF2', accentColor: '#15803d', iconType: 'induction' },
+  { id: 7, name: 'Helmet + Coin', fullName: 'ISI Certified Helmet + Pure Silver Coin', rarity: 'Assured Gift', color: '#ffffff', accentColor: '#ea580c', iconType: 'helmet' },
+  { id: 8, name: '₹2,999 DP Voucher', fullName: '₹2,999 Down Payment Booking Voucher', rarity: 'Diwali Dhamaka', color: '#FFFBF2', accentColor: '#15803d', iconType: 'voucher' },
 ];
 
 export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) => {
@@ -283,28 +283,9 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                 <div className="w-4 h-4 rounded-full bg-[#eab308] -mt-3 border-2 border-[#ea580c] shadow-sm animate-pulse" />
               </div>
 
-              {/* OUTER LIGHT THEME HOUSING RING (POLISHED LUXURY BEZEL WITH GOLD & SAFFRON ACCENTS) */}
-              <div className="absolute inset-0 rounded-full border-[10px] sm:border-[16px] border-[#E6DAC7] shadow-[0_25px_60px_-15px_rgba(234,88,12,0.14)] bg-[#FDFBF7] p-2 sm:p-2.5 flex items-center justify-center ring-4 sm:ring-8 ring-[#eab308]/20">
+              {/* OUTER LIGHT THEME HOUSING RING */}
+              <div className="absolute inset-0 rounded-full border-4 sm:border-8 border-[#E6DAC7] shadow-[0_20px_50px_-15px_rgba(234,88,12,0.12)] bg-[#FDFBF7] p-2 flex items-center justify-center">
                 
-                {/* 16 Precision Radial Bezel Markers in Gold and Saffron */}
-                {[...Array(16)].map((_, i) => {
-                  const angle = (i * 360) / 16;
-                  const isNorth = i === 0;
-                  return (
-                    <div
-                      key={i}
-                      className={`absolute rounded-full transition-all ${
-                        isNorth 
-                          ? 'w-2 h-4 sm:w-2.5 sm:h-5 bg-[#ea580c] shadow-[0_0_8px_#ea580c]' 
-                          : 'w-1.5 h-2.5 sm:w-2 sm:h-3.5 bg-[#eab308]/90'
-                      }`}
-                      style={{
-                        transform: `rotate(${angle}deg) translate(0, -${window.innerWidth > 640 ? 312 : 160}px)`,
-                      }}
-                    />
-                  );
-                })}
-
                 {/* THE ROTATING 600x600 LIGHT THEME SVG DIAL */}
                 <svg
                   viewBox="0 0 600 600"
@@ -315,9 +296,9 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                   }}
                 >
                   {/* Outer Rim Ring */}
-                  <circle cx="300" cy="300" r="290" fill="#ffffff" stroke="#f1efe9" strokeWidth="3" />
+                  <circle cx="300" cy="300" r="294" fill="#ffffff" stroke="#E6DAC7" strokeWidth="4" />
 
-                  {/* 8 SLICES (45 DEGREES EACH) IN CRISP LIGHT THEME */}
+                  {/* 8 SLICES (45 DEGREES EACH) IN CLEAN MINIMAL STYLE */}
                   {PRIZES.map((prize, idx) => {
                     const sliceAngle = 45;
                     const startAngle = idx * sliceAngle;
@@ -325,7 +306,7 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                     const midAngle = startAngle + sliceAngle / 2;
 
                     // Polar coordinates: 0 deg is at top (12 o'clock)
-                    const r = 286;
+                    const r = 292;
                     const x1 = 300 + r * Math.sin((startAngle * Math.PI) / 180);
                     const y1 = 300 - r * Math.cos((startAngle * Math.PI) / 180);
                     const x2 = 300 + r * Math.sin((endAngle * Math.PI) / 180);
@@ -335,54 +316,37 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
 
                     return (
                       <g key={prize.id}>
-                        {/* Slice Wedge with subtle warm light fill */}
+                        {/* Clean Wedge Fill with subtle stone divider */}
                         <path
                           d={pathData}
                           fill={prize.color}
-                          stroke="#eab308"
-                          strokeWidth="1.5"
-                          strokeOpacity="0.8"
+                          stroke="#E6DAC7"
+                          strokeWidth="2"
                         />
 
-                        {/* Concentric Golden Arcs for Luxury Festive Feel */}
-                        <path
-                          d={`M ${300 + 242 * Math.sin((startAngle * Math.PI) / 180)} ${300 - 242 * Math.cos((startAngle * Math.PI) / 180)} A 242 242 0 0 1 ${300 + 242 * Math.sin((endAngle * Math.PI) / 180)} ${300 - 242 * Math.cos((endAngle * Math.PI) / 180)}`}
-                          fill="none"
-                          stroke="#eab308"
-                          strokeWidth="1.2"
-                          strokeDasharray="4 3"
-                          strokeOpacity="0.6"
-                        />
-                        <path
-                          d={`M ${300 + 175 * Math.sin((startAngle * Math.PI) / 180)} ${300 - 175 * Math.cos((startAngle * Math.PI) / 180)} A 175 175 0 0 1 ${300 + 175 * Math.sin((endAngle * Math.PI) / 180)} ${300 - 175 * Math.cos((endAngle * Math.PI) / 180)}`}
-                          fill="none"
-                          stroke="#cbd5e1"
-                          strokeWidth="1"
-                        />
-
-                        {/* Content inside each slice: Real SVG icon + Crisp Dark Typography */}
+                        {/* Content inside each slice: Single Clean Vector Icon + Bold Title */}
                         <g transform={`rotate(${midAngle} 300 300)`}>
                           
-                          {/* REAL VECTOR ICON SHAPES IN VIBRANT COLORS (NO EMOJIS) */}
-                          <g transform="translate(300, 72)" stroke={prize.accentColor} strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                          {/* Vector Icon in Brand Color */}
+                          <g transform="translate(300, 76)" stroke={prize.accentColor} strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             {prize.iconType === 'washing' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <rect x="3" y="2" width="18" height="20" rx="3" stroke="#0284c7" />
-                                <circle cx="12" cy="13" r="5" stroke="#f59e0b" />
+                                <rect x="3" y="2" width="18" height="20" rx="3" stroke="#ea580c" />
+                                <circle cx="12" cy="13" r="5" stroke="#ea580c" />
                                 <path d="M12 10a3 3 0 0 1 3 3" />
-                                <circle cx="7" cy="5.5" r="0.8" fill="#0284c7" />
+                                <circle cx="7" cy="5.5" r="0.8" fill="#ea580c" />
                               </g>
                             )}
                             {prize.iconType === 'tv' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <rect x="2" y="4" width="20" height="14" rx="2" stroke="#ea580c" />
+                                <rect x="2" y="4" width="20" height="14" rx="2" stroke="#15803d" />
                                 <line x1="8" y1="21" x2="16" y2="21" />
                                 <line x1="12" y1="18" x2="12" y2="21" />
                               </g>
                             )}
                             {prize.iconType === 'fridge' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <rect x="4" y="2" width="16" height="20" rx="2" stroke="#0d9488" />
+                                <rect x="4" y="2" width="16" height="20" rx="2" stroke="#ea580c" />
                                 <line x1="4" y1="9" x2="20" y2="9" />
                                 <line x1="8" y1="5" x2="8" y2="7" />
                                 <line x1="8" y1="12" x2="8" y2="15" />
@@ -390,66 +354,51 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                             )}
                             {prize.iconType === 'ac' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <rect x="2" y="4" width="20" height="8" rx="2" stroke="#0284c7" />
+                                <rect x="2" y="4" width="20" height="8" rx="2" stroke="#15803d" />
                                 <line x1="6" y1="8" x2="8" y2="8" />
-                                <path d="M6 16c1.5 1.5 3 1.5 4.5 0s3-1.5 4.5 0 3 1.5 4.5 0" stroke="#06b6d4" />
+                                <path d="M6 16c1.5 1.5 3 1.5 4.5 0s3-1.5 4.5 0 3 1.5 4.5 0" stroke="#15803d" />
                               </g>
                             )}
                             {prize.iconType === 'water' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="#0284c7" fill="#0284c7" fillOpacity="0.15" />
-                                <path d="M12 12a3 3 0 0 0 3 3" stroke="#f59e0b" />
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="#ea580c" fill="#ea580c" fillOpacity="0.15" />
+                                <path d="M12 12a3 3 0 0 0 3 3" stroke="#ea580c" />
                               </g>
                             )}
                             {prize.iconType === 'induction' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <rect x="3" y="4" width="18" height="16" rx="2" stroke="#ea580c" />
-                                <circle cx="12" cy="12" r="5" stroke="#f97316" />
-                                <circle cx="12" cy="12" r="2" stroke="#f59e0b" />
+                                <rect x="3" y="4" width="18" height="16" rx="2" stroke="#15803d" />
+                                <circle cx="12" cy="12" r="5" stroke="#15803d" />
+                                <circle cx="12" cy="12" r="2" stroke="#15803d" />
                               </g>
                             )}
                             {prize.iconType === 'helmet' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <circle cx="10" cy="11" r="6" stroke="#eab308" />
-                                <path d="M10 5v6h6" stroke="#eab308" />
-                                <circle cx="17" cy="16" r="4.5" stroke="#94a3b8" />
+                                <circle cx="10" cy="11" r="6" stroke="#ea580c" />
+                                <path d="M10 5v6h6" stroke="#ea580c" />
+                                <circle cx="17" cy="16" r="4.5" stroke="#ea580c" />
                               </g>
                             )}
                             {prize.iconType === 'voucher' && (
                               <g transform="translate(-13, -13) scale(1.15)">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#ea580c" fill="#ea580c" fillOpacity="0.25" />
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#15803d" fill="#15803d" fillOpacity="0.25" />
                               </g>
                             )}
                           </g>
 
-                          {/* CRISP DARK VISIBLE LABEL TEXT */}
+                          {/* Crisp Single-Line Prize Name */}
                           <text
                             x="300"
-                            y="114"
+                            y="126"
                             textAnchor="middle"
                             dominantBaseline="central"
-                            fill="#111827"
+                            fill="#14532d"
                             fontSize="13"
-                            fontWeight="900"
-                            fontFamily="system-ui, sans-serif"
-                            letterSpacing="0.6"
+                            fontWeight="800"
+                            fontFamily="sans-serif"
+                            letterSpacing="0.4"
                           >
                             {prize.name.toUpperCase()}
-                          </text>
-
-                          {/* SUB-TAG / RARITY BADGE */}
-                          <text
-                            x="300"
-                            y="134"
-                            textAnchor="middle"
-                            dominantBaseline="central"
-                            fill="#ea580c"
-                            fontSize="8.5"
-                            fontWeight="900"
-                            fontFamily="system-ui, sans-serif"
-                            letterSpacing="1.2"
-                          >
-                            {prize.rarity.toUpperCase()}
                           </text>
 
                         </g>
@@ -457,28 +406,26 @@ export const ScratchAndWin: React.FC<ScratchAndWinProps> = ({ onOpenTestRide }) 
                     );
                   })}
 
-                  {/* Concentric Center Luxury Light Core */}
-                  <circle cx="300" cy="300" r="115" fill="#ffffff" stroke="#f1efe9" strokeWidth="4" />
-                  <circle cx="300" cy="300" r="85" fill="#fdfbf7" stroke="#eab308" strokeWidth="2.5" strokeDasharray="6 4" />
-                  <circle cx="300" cy="300" r="64" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2" />
+                  {/* Clean Minimal Center Hub */}
+                  <circle cx="300" cy="300" r="74" fill="#FDFBF7" stroke="#E6DAC7" strokeWidth="3" />
                 </svg>
 
-                {/* CENTER STATIONARY SPIN BUTTON (PRESS TO TRIGGER) */}
+                {/* CENTER STATIONARY SPIN BUTTON */}
                 <button
                   onClick={handleSpinWheel}
                   disabled={isSpinning}
-                  className={`absolute z-30 w-28 h-28 sm:w-32 sm:h-32 xl:w-36 xl:h-36 rounded-full flex flex-col items-center justify-center font-black text-white uppercase tracking-widest shadow-2xl border-4 border-white transition-all cursor-pointer ${
+                  className={`absolute z-30 w-24 h-24 sm:w-28 sm:h-28 xl:w-32 xl:h-32 rounded-full flex flex-col items-center justify-center font-black text-white uppercase tracking-wider shadow-2xl border-4 border-white transition-all cursor-pointer ${
                     isSpinning
                       ? 'bg-stone-400 cursor-not-allowed scale-95 opacity-80'
-                      : 'bg-gradient-to-tr from-[#ea580c] via-[#f97316] to-[#eab308] hover:scale-105 active:scale-95 shadow-[0_10px_30px_rgba(234,88,12,0.4)] ring-4 sm:ring-8 ring-[#fef08a]'
+                      : 'bg-gradient-to-br from-[#ea580c] to-[#c2410c] hover:scale-105 active:scale-95 shadow-[0_10px_25px_rgba(234,88,12,0.35)]'
                   }`}
                   aria-label="Spin the official rewards wheel"
                 >
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-[#fef08a] mb-0.5" />
-                  <span className="text-sm sm:text-base font-black tracking-wider">
+                  <Sparkles className="w-5 h-5 text-[#fef08a] mb-0.5" />
+                  <span className="text-base sm:text-lg font-black tracking-wider font-['Oswald'] italic">
                     {isSpinning ? 'SPINNING' : 'SPIN'}
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-amber-100 font-bold -mt-0.5">CLICK ME</span>
+                  <span className="text-[9px] text-[#fef08a] font-bold tracking-widest -mt-0.5">CLICK ME</span>
                 </button>
 
               </div>
