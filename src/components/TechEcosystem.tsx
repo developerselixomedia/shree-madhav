@@ -1,92 +1,44 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, Zap, BatteryCharging, Wrench, ShieldCheck, MapPin } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Zap, MapPin } from 'lucide-react';
 
 interface TechEcosystemProps {
   onOpenTestRide?: (modelId?: string) => void;
 }
 
 export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) => {
-  // Slide cards data representing the 3 client business pillars:
-  // 1. E-Rickshaw & E-Scooty Showroom
-  // 2. Lead Acid & Lithium Batteries
-  // 3. Sales | Service | Support
-  const cardSets = [
-    [
-      {
-        id: 'card-1',
-        category: 'E-SCOOTY SHOWROOM',
-        title: 'High-Torque Electric Scooties for Prayagraj',
-        body: 'Zero petrol expense, whisper-quiet motor, and up to 120 km range per charge. Down payments start from just ₹2,999 on spot.',
-        image: '/vehicles/scooty-fascino-style.jpg',
-        buttonText: 'EXPLORE SCOOTIES',
-        badge: 'From ₹2,999 DP',
-        action: '#vehicles'
-      },
-      {
-        id: 'card-2',
-        category: 'E-RICKSHAW SHOWROOM',
-        title: 'Passenger & Cargo Commercial E-Rickshaws',
-        body: 'High-capacity 4+1 passenger e-rickshaws and heavy cargo loaders built for Prayagraj roads. Earn ₹45,000+ monthly with electricity cost under ₹50/day.',
-        image: '/vehicles/e-rickshaw-allfine.jpg',
-        buttonText: 'VIEW E-RICKSHAWS',
-        badge: 'Earn ₹45k+/mo',
-        action: '#vehicles'
-      },
-      {
-        id: 'card-3',
-        category: 'LITHIUM & LEAD ACID BATTERIES',
-        title: '3-Year Warranty Lithium-Ion & Tubular Batteries',
-        body: 'Grade A+ Lithium Iron Phosphate (LFP) battery packs and deep-cycle lead-acid sets with instant spot trade-in exchange at our Jhalwa showroom.',
-        image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80',
-        buttonText: 'BATTERY TRADE-IN',
-        badge: '3-Year Warranty',
-        action: '#battery-exchange'
-      },
-    ],
-    [
-      {
-        id: 'card-4',
-        category: 'SALES & FINANCING',
-        title: 'Aadhaar + PAN Spot Loan Approval in 15 Minutes',
-        body: 'Direct tie-ups with leading banks & NBFCs. Minimum documentation, zero hidden charges, and direct Uttar Pradesh EV government subsidy processing.',
-        image: '/vehicles/scooty-urban-yellow.jpg',
-        buttonText: 'CALCULATE EMI',
-        badge: 'Instant Spot Loan',
-        action: '#calculators'
-      },
-      {
-        id: 'card-5',
-        category: 'WORKSHOP & SPARE PARTS',
-        title: 'Full-Service Workshop in Shaha Urf Pipal Gaon',
-        body: 'Certified EV technicians and 100% genuine spare parts in stock: motors, controllers, brake shoes, heavy-duty tires, and microprocessor chargers.',
-        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-        buttonText: 'BOOK SERVICE',
-        badge: '100% Genuine Parts',
-        action: '#dealership'
-      },
-      {
-        id: 'card-6',
-        category: 'CUSTOMER CARE & SUPPORT',
-        title: '24/7 Prayagraj Customer Helpline & Roadside Support',
-        body: 'Dedicated phone assistance (9211-50-9211), free scheduled checkups, doorstep test rides, and instant WhatsApp support across Prayagraj.',
-        image: '/vehicles/scooty-red-ev.jpg',
-        buttonText: 'CONTACT SUPPORT',
-        badge: '9211-50-9211',
-        action: '#dealership'
-      },
-    ]
+  // 3 Core Business Pillars of Shree Madhav Enterprises:
+  // 1. High-Torque Electric Scooties
+  // 2. Passenger & Cargo Commercial E-Rickshaws
+  // 3. Lithium & Lead-Acid Battery Exchange Hub
+  const cards = [
+    {
+      id: 'card-1',
+      category: 'E-SCOOTY SHOWROOM',
+      title: 'High-Torque Electric Scooties for Prayagraj',
+      body: 'Zero petrol expense, whisper-quiet motor, and up to 120 km range per charge. Down payments start from just ₹2,999 on spot.',
+      image: '/vehicles/scooty-fascino-style.jpg',
+      badge: 'From ₹2,999 DP',
+      action: '#vehicles'
+    },
+    {
+      id: 'card-2',
+      category: 'E-RICKSHAW SHOWROOM',
+      title: 'Passenger & Cargo Commercial E-Rickshaws',
+      body: 'High-capacity 4+1 passenger e-rickshaws and heavy cargo loaders built for Prayagraj roads. Earn ₹45,000+ monthly with electricity cost under ₹50/day.',
+      image: '/vehicles/e-rickshaw-allfine.jpg',
+      badge: 'Earn ₹45k+/mo',
+      action: '#vehicles'
+    },
+    {
+      id: 'card-3',
+      category: 'LITHIUM & LEAD ACID BATTERIES',
+      title: '3-Year Warranty Lithium-Ion & Tubular Batteries',
+      body: 'Grade A+ Lithium Iron Phosphate (LFP) battery packs and deep-cycle lead-acid sets with instant spot trade-in exchange at our Jhalwa showroom.',
+      image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80',
+      badge: '3-Year Warranty',
+      action: '#battery-exchange'
+    },
   ];
-
-  const [activeSetIndex, setActiveSetIndex] = useState(0);
-  const currentCards = cardSets[activeSetIndex];
-
-  const handlePrev = () => {
-    setActiveSetIndex((prev) => (prev === 0 ? cardSets.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setActiveSetIndex((prev) => (prev + 1) % cardSets.length);
-  };
 
   return (
     <section 
@@ -119,7 +71,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
 
         {/* ================= MAIN CARD CONTAINER ================= */}
         <div 
-          className="relative z-10 bg-[#FDFBF7] text-[#111827] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-2xl min-h-[720px] sm:min-h-[780px] flex flex-col justify-between overflow-hidden border-2 border-[#E6DAC7]"
+          className="relative z-10 bg-[#FDFBF7] text-[#111827] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-2xl flex flex-col justify-between overflow-hidden border-2 border-[#E6DAC7]"
           style={{
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, min(180px, 15vw) 100%, 0 calc(100% - min(120px, 10vw)))'
           }}
@@ -154,7 +106,7 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
             </div>
           </div>
 
-          {/* Center Main Area: Left Article Directly on Background + Right 3 Slider Cards */}
+          {/* Center Main Area: Left Article Directly on Background + Right 3 Feature Cards */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center flex-1 my-auto">
             
             {/* Left Article */}
@@ -191,12 +143,13 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
               </div>
             </div>
 
-            {/* Right 3 Floating Slider Cards */}
+            {/* Right 3 Clean Feature Cards (Without congested bottom buttons) */}
             <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
-              {currentCards.map((card) => (
-                <div
+              {cards.map((card) => (
+                <a
                   key={card.id}
-                  className="bg-[#FDFBF7] text-[#16171b] rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 border border-[#E6DAC7] hover:border-[#ea580c]/60 group"
+                  href={card.action}
+                  className="bg-[#FDFBF7] text-[#16171b] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl flex flex-col justify-between hover:-translate-y-2 transition-all duration-300 border border-[#E6DAC7] hover:border-[#ea580c]/60 group block cursor-pointer"
                 >
                   {/* Top Image Flush with Card Edges */}
                   <div className="relative w-full h-44 sm:h-52 overflow-hidden bg-stone-100 flex-shrink-0">
@@ -210,13 +163,13 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                     </div>
                   </div>
 
-                  {/* Card Content with Pill Button */}
-                  <div className="p-5 flex flex-col justify-between flex-1 space-y-3">
+                  {/* Card Content (Clean & Spacious) */}
+                  <div className="p-5 flex flex-col justify-between flex-1">
                     <div>
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ea580c] block mb-1">
                         {card.category}
                       </span>
-                      <h4 className="text-sm sm:text-[15px] font-bold text-[#14532d] leading-snug">
+                      <h4 className="text-sm sm:text-[15px] font-bold text-[#14532d] leading-snug group-hover:text-[#ea580c] transition-colors">
                         {card.title}
                       </h4>
                       <p className="text-xs text-stone-600 mt-2 leading-[1.7] font-normal">
@@ -224,49 +177,25 @@ export const TechEcosystem: React.FC<TechEcosystemProps> = ({ onOpenTestRide }) 
                       </p>
                     </div>
 
-                    <div className="pt-2">
-                      <a
-                        href={card.action}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FBF7EE] hover:bg-[#ea580c] hover:text-white text-[#15803d] border border-[#E6DAC7] font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer w-full justify-center"
-                      >
-                        <span>{card.buttonText}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
+                    <div className="pt-4 flex items-center gap-1.5 text-xs font-bold text-[#15803d] group-hover:text-[#ea580c] transition-colors">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
 
           </div>
 
-          {/* Bottom Controls Bar: < > SEE ALL Centered in Bottom */}
-          <div className="relative z-10 flex items-center justify-center gap-3 pt-8 pb-3">
-            <button
-              onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-[#FDFBF7] hover:bg-[#ea580c] hover:text-white text-[#15803d] flex items-center justify-center border border-[#E6DAC7] hover:border-[#ea580c] shadow-md transition-all hover:scale-105 cursor-pointer text-sm font-bold"
-              aria-label="Previous Slide Set"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <span className="text-xs font-mono font-bold text-stone-500 px-2">
-              {activeSetIndex + 1} / {cardSets.length}
-            </span>
-
-            <button
-              onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-[#FDFBF7] hover:bg-[#ea580c] hover:text-white text-[#15803d] flex items-center justify-center border border-[#E6DAC7] hover:border-[#ea580c] shadow-md transition-all hover:scale-105 cursor-pointer text-sm font-bold"
-              aria-label="Next Slide Set"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-
+          {/* Bottom Footnote / View All Fleet Link */}
+          <div className="relative z-10 flex items-center justify-end pt-6 pb-1">
             <a
               href="#vehicles"
-              className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#15803d] hover:text-[#ea580c] transition-colors ml-4 cursor-pointer"
+              className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#15803d] hover:text-[#ea580c] transition-colors cursor-pointer flex items-center gap-1.5"
             >
-              VIEW ALL FLEET &rarr;
+              <span>VIEW FULL EV FLEET</span>
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
 
