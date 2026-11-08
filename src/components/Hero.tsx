@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
   onOpenTestRide: (modelId?: string) => void;
@@ -13,7 +13,6 @@ const HERO_SLIDES = [
     kicker: 'ALL-NEW ELECTRIC SCOOTER',
     title: 'FALCON EV',
     subtitle: 'SPECTRAL COLOUR EDITION',
-    tagline: '120 KM Range • Down Payment From ₹2,999*',
     primaryCta: 'BOOK A TEST RIDE',
     secondaryCta: 'VIEW SPECS',
     actionType: 'test-ride',
@@ -24,7 +23,6 @@ const HERO_SLIDES = [
     kicker: 'HIGH PERFORMANCE EV',
     title: 'THUNDER MAX',
     subtitle: 'INSTANT TORQUE & SPEED',
-    tagline: '65 KM/H Speed • Fast Charge in 2.5 Hours',
     primaryCta: 'BOOK A TEST RIDE',
     secondaryCta: 'VIEW SPECS',
     actionType: 'test-ride',
@@ -35,7 +33,6 @@ const HERO_SLIDES = [
     kicker: 'LIVELIHOOD & ROZGAAR SERIES',
     title: 'SHAAN ROZGAAR',
     subtitle: 'COMMERCIAL E-RICKSHAW (4+1)',
-    tagline: 'Earn ₹45,000+ Net Monthly • ₹40/Day Running Cost',
     primaryCta: 'ENQUIRE NOW',
     secondaryCta: 'VIEW SPECS',
     actionType: 'commercial',
@@ -46,7 +43,6 @@ const HERO_SLIDES = [
     kicker: 'SPECIAL FESTIVAL DHAMAKA',
     title: 'FESTIVE OFFER',
     subtitle: 'DOWN PAYMENT JUST ₹2,999*',
-    tagline: 'Guaranteed Scratch & Win Gifts with Every EV',
     primaryCta: 'CLAIM OFFER',
     secondaryCta: 'VIEW SPECS',
     actionType: 'offer',
@@ -156,16 +152,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTestRide, onOpenOffer }) => {
             </h2>
           </div>
 
-          {/* Single Punchy Tagline Pill */}
-          <div className="pt-0.5">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FDFBF7]/90 border border-[#E6DAC7] shadow-xs text-xs sm:text-sm font-bold text-stone-800">
-              <Sparkles className="w-3.5 h-3.5 text-[#eab308] shrink-0" />
-              <span>{slide.tagline}</span>
-            </span>
-          </div>
-
           {/* Clean Action Buttons */}
-          <div className="flex items-center gap-3 pt-3">
+          <div className="flex items-center gap-3 pt-2 sm:pt-3">
             {/* Primary Saffron CTA Button */}
             <button
               onClick={handlePrimaryClick}
