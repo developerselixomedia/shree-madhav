@@ -80,10 +80,10 @@ export function App() {
           onOpenTestRide={() => handleOpenTestRide()}
         />
 
-        {/* 7. Dual Savings & EMI Loan Calculator */}
-        <Calculators
+        {/* 7. Dual Savings & EMI Loan Calculator (Commented out per user request) */}
+        {/* <Calculators
           onOpenTestRide={() => handleOpenTestRide()}
-        />
+        /> */}
 
         {/* 8. Commercial E-Rickshaw & Loader Rozgaar Hub (Temporarily commented out) */}
         {/* <CommercialHub
@@ -93,8 +93,8 @@ export function App() {
         {/* 9. Lithium-Ion & Lead Acid Battery Exchange Hub */}
         <BatteryExchange />
 
-        {/* 10. Book a Test Ride Full TVS Section */}
-        <BookTestRide initialModelId={testRideInitialModelId} />
+        {/* 10. Book a Test Ride Full Section (Commented out per user request - bookings handled via TestRideModal) */}
+        {/* <BookTestRide initialModelId={testRideInitialModelId} /> */}
 
         {/* 11. Reel Vault: "EVERYTHING YOUR BRAND NEEDS TO GROW" */}
         <ReelVault onOpenTestRide={handleOpenTestRide} />
