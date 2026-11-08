@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { QuickActionDock } from './components/QuickActionDock';
 import { VehicleExplorer } from './components/VehicleExplorer';
 import { RacingSection } from './components/RacingSection';
 import { VehicleModal } from './components/VehicleModal';
@@ -63,13 +62,6 @@ export function App() {
         {/* 2. TVS-Style Cinematic Hero Banner Carousel */}
         <Hero
           onOpenTestRide={handleOpenTestRide}
-          onOpenOffer={handleOpenOffer}
-          onOpenCalculator={handleOpenCalculator}
-        />
-
-        {/* 3. Hallmark TVS Quick Action Dock */}
-        <QuickActionDock
-          onOpenTestRide={() => handleOpenTestRide()}
           onOpenOffer={handleOpenOffer}
           onOpenCalculator={handleOpenCalculator}
         />
